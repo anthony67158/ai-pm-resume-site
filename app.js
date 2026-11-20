@@ -9,6 +9,105 @@
   setNavState();
   window.addEventListener("scroll", setNavState, { passive: true });
 
+  const demo = $("#productDemo");
+  if (demo) {
+    const frames = $$("[data-demo-frame]", demo);
+    const tabs = $$("[data-demo-step]", demo);
+    const toggle = $(".demo-toggle", demo);
+    const cursor = $(".demo-cursor", demo);
+    const status = $(".demo-status", demo);
+    const title = $(".demo-title", demo);
+    const detail = $(".demo-detail", demo);
+    const count = $(".demo-count", demo);
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const cycleMs = 4800;
+    let current = 0;
+    let timer = 0;
+    let clickTimer = 0;
+    let cleanupTimer = 0;
+    let visible = false;
+    let userPaused = reduceMotion;
+
+    const canPlay = () => visible && !userPaused && !document.hidden;
+    const resetClass = (className) => {
+      demo.classList.remove(className);
+      void demo.offsetWidth;
+      demo.classList.add(className);
+    };
+    const updatePlayback = () => {
+      const playing = canPlay();
+      demo.classList.toggle("is-playing", playing);
+      demo.classList.toggle("is-paused", !playing);
+      toggle.setAttribute("aria-pressed", String(!playing));
+      toggle.setAttribute("aria-label", playing ? "暂停操作演示" : "播放操作演示");
+    };
+    const schedule = () => {
+      window.clearTimeout(timer);
+      updatePlayback();
+      if (!canPlay()) return;
+      demo.classList.remove("is-playing");
+      void demo.offsetWidth;
+      demo.classList.add("is-playing");
+      timer = window.setTimeout(() => show((current + 1) % frames.length), cycleMs);
+    };
+    const show = (next) => {
+      current = (next + frames.length) % frames.length;
+      const frame = frames[current];
+      frames.forEach((item, index) => item.classList.toggle("is-active", index === current));
+      tabs.forEach((tab, index) => {
+        const selected = index === current;
+        tab.setAttribute("aria-selected", String(selected));
+        tab.tabIndex = selected ? 0 : -1;
+      });
+      title.textContent = frame.dataset.title;
+      detail.textContent = frame.dataset.detail;
+      count.textContent = `${String(current + 1).padStart(2, "0")} / ${String(frames.length).padStart(2, "0")}`;
+      cursor.style.left = `${frame.dataset.cursorX}%`;
+      cursor.style.top = `${frame.dataset.cursorY}%`;
+      resetClass("is-switching");
+      status.classList.remove("is-updating");
+      void status.offsetWidth;
+      status.classList.add("is-updating");
+      window.clearTimeout(clickTimer);
+      window.clearTimeout(cleanupTimer);
+      clickTimer = window.setTimeout(() => resetClass("is-clicking"), 820);
+      cleanupTimer = window.setTimeout(() => {
+        demo.classList.remove("is-switching", "is-clicking");
+        status.classList.remove("is-updating");
+      }, 1500);
+      schedule();
+    };
+
+    tabs.forEach((tab, index) => {
+      tab.addEventListener("click", () => show(index));
+      tab.addEventListener("keydown", (event) => {
+        if (!["ArrowLeft", "ArrowRight"].includes(event.key)) return;
+        event.preventDefault();
+        const delta = event.key === "ArrowRight" ? 1 : -1;
+        const next = (index + delta + tabs.length) % tabs.length;
+        show(next);
+        tabs[next].focus({ preventScroll: true });
+      });
+    });
+
+    if (reduceMotion) {
+      toggle.hidden = true;
+    } else {
+      toggle.addEventListener("click", () => {
+        userPaused = !userPaused;
+        schedule();
+      });
+    }
+
+    const observer = new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting && entry.intersectionRatio >= 0.25;
+      schedule();
+    }, { threshold: [0, 0.25, 0.75] });
+    observer.observe(demo);
+    document.addEventListener("visibilitychange", schedule);
+    show(0);
+  }
+
   const workflowSteps = $$(".workflow-accordion details");
   workflowSteps.forEach((step) => {
     step.addEventListener("toggle", () => {

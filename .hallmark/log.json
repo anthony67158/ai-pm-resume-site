@@ -12,5 +12,12 @@
     "theme": "Cobalt-derived",
     "enrichment": "20-second summary plus expandable detail",
     "brief": "Balance fast comprehension with complete product evidence"
+  },
+  {
+    "date": "2026-11-20",
+    "macrostructure": "Animated Workbench",
+    "theme": "Cobalt-derived",
+    "enrichment": "interactive real-interface operation loop",
+    "brief": "Show intake, template selection, and final delivery through product motion"
   }
 ]
