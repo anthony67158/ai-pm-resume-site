@@ -9,6 +9,16 @@
   setNavState();
   window.addEventListener("scroll", setNavState, { passive: true });
 
+  const workflowSteps = $$(".workflow-accordion details");
+  workflowSteps.forEach((step) => {
+    step.addEventListener("toggle", () => {
+      if (!step.open) return;
+      workflowSteps.forEach((other) => {
+        if (other !== step) other.open = false;
+      });
+    });
+  });
+
   const copyButtons = $$("[data-copy]");
   copyButtons.forEach((button) => {
     button.addEventListener("click", async () => {

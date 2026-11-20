@@ -5,5 +5,12 @@
     "theme": "Cobalt-derived",
     "enrichment": "real product screenshots",
     "brief": "AI PM Resume landing page with usage flow, synthetic case, template gallery, and payment entry"
+  },
+  {
+    "date": "2026-11-20",
+    "macrostructure": "Progressive-disclosure Workbench",
+    "theme": "Cobalt-derived",
+    "enrichment": "20-second summary plus expandable detail",
+    "brief": "Balance fast comprehension with complete product evidence"
   }
 ]

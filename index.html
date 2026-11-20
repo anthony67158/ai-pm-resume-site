@@ -24,7 +24,7 @@
         <span>AI PM Resume</span>
       </a>
       <nav class="nav-links" aria-label="主导航">
-        <a href="#how">怎么用</a>
+        <a href="#quick">20 秒看懂</a>
         <a href="#case">改写案例</a>
         <a href="#templates">模板</a>
       </nav>
@@ -38,16 +38,16 @@
     <section class="hero" id="top">
       <div class="container">
         <div class="hero-copy">
-          <p class="meta-label">AI 产品经理简历 Skill</p>
+          <p class="meta-label">安装进 Agent 的 AI 产品经理简历 Skill</p>
           <h1>AI PM Resume</h1>
-          <p class="hero-claim">旧简历重写，或从零开始，做成一份能投 AI 岗位的完整简历。</p>
-          <p class="hero-lede">核对事实、按目标岗位改写，确认排版后交付 Word、PDF 和全部 PNG。</p>
+          <p class="hero-claim">给它旧简历、经历素材和目标岗位，拿回定制后的完整简历。</p>
+          <p class="hero-lede">它不是在线简历生成器。安装到 TRAE、Claude Code、Cursor 等 Agent 后使用，最终交付 Word、PDF 和全部页面 PNG。</p>
           <div class="hero-actions">
-            <a class="btn btn--primary" href="#how">
-              看使用流程
+            <a class="btn btn--primary" href="#quick">
+              20 秒看懂
               <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
             </a>
-            <a class="btn btn--quiet" href="#case">看改写案例</a>
+            <a class="btn btn--quiet" href="#case">直接看案例</a>
           </div>
         </div>
         <figure class="hero-media">
@@ -60,89 +60,127 @@
       </div>
     </section>
 
+    <section class="quick-section" id="quick">
+      <div class="container">
+        <header class="quick-head">
+          <p class="meta-label">20 秒看懂</p>
+          <h2>素材进，简历出；你只负责确认</h2>
+        </header>
+        <ol class="quick-flow">
+          <li>
+            <span class="quick-number">01</span>
+            <div><strong>你提供</strong><p>旧简历或经历素材<br>目标公司、职位、JD</p></div>
+          </li>
+          <li>
+            <span class="quick-number">02</span>
+            <div><strong>Skill 完成</strong><p>核对事实、岗位定制<br>内容重写、18 款排版</p></div>
+          </li>
+          <li>
+            <span class="quick-number">03</span>
+            <div><strong>你确认并拿走</strong><p>可编辑 Word<br>文字层 PDF、全部 PNG</p></div>
+          </li>
+        </ol>
+        <div class="quick-bottom">
+          <div class="quick-fit">
+            <span><b>适合：</b>有真实经历，想投 AI 产品经理岗位</span>
+            <span><b>不适合：</b>希望网页直接生成，或期待编造经历与指标</span>
+          </div>
+          <div class="quick-links">
+            <a href="#case">看改写前后</a>
+            <a href="#templates">看模板长什么样</a>
+            <a href="#how">展开完整流程</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="section workflow" id="how">
       <div class="container">
         <header class="section-head">
-          <p class="meta-label">怎么使用</p>
-          <h2>四步，用完一条完整链路</h2>
-          <p>不是把文件丢给 AI 就等结果。每个关键节点都能看、能改、能确认。</p>
+          <p class="meta-label">完整使用流程</p>
+          <h2>需要细节时，再展开看</h2>
+          <p>四步标题已经覆盖完整路径。点击任一步，查看操作说明和真实界面。</p>
         </header>
 
-        <ol class="workflow-list">
-          <li class="workflow-step">
-            <div class="step-copy">
-              <span class="step-number">1.0</span>
-              <h3>安装到你的 Agent</h3>
-              <p>下载完整 Skill 文件夹，放到宿主支持的技能目录。以 TRAE 项目级安装为例：</p>
-              <ul class="step-detail">
-                <li>保留 SKILL.md、脚本、模板和参考资料</li>
-                <li>首次使用先运行环境检查</li>
-                <li>页面不收集简历，所有制作发生在你的 Agent 中</li>
-              </ul>
-            </div>
-            <div class="code-block">
-              <pre id="installCode">.trae/skills/ai-pm-resume/SKILL.md
+        <div class="workflow-accordion">
+          <details name="workflow">
+            <summary><span class="step-number">1.0</span><strong>安装到你的 Agent</strong><small>约 1 分钟</small><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5v14"/></svg></summary>
+            <div class="workflow-detail">
+              <div class="step-copy">
+                <p>下载完整 Skill 文件夹，放到宿主支持的技能目录。以 TRAE 项目级安装为例：</p>
+                <ul class="step-detail">
+                  <li>保留 SKILL.md、脚本、模板和参考资料</li>
+                  <li>首次使用先运行环境检查</li>
+                  <li>页面不收集简历，所有制作发生在你的 Agent 中</li>
+                </ul>
+              </div>
+              <div class="code-block">
+                <pre id="installCode">.trae/skills/ai-pm-resume/SKILL.md
 
 在 Agent 中输入：
 使用 ai-pm-resume 帮我生成 AI 产品经理简历。</pre>
-              <button class="copy-btn" type="button" data-copy="installCode">
-                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="11" height="11" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg>
-                <span class="copy-label">复制</span>
-              </button>
+                <button class="copy-btn" type="button" data-copy="installCode">
+                  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="11" height="11" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg>
+                  <span class="copy-label">复制</span>
+                </button>
+              </div>
             </div>
-          </li>
+          </details>
 
-          <li class="workflow-step">
-            <div class="step-copy">
-              <span class="step-number">2.0</span>
-              <h3>上传旧简历，或者从零填写</h3>
-              <p>有旧简历就直接上传；没有就从教育、工作、实习和项目开始。目标公司、具体职位和 JD 分开填写。</p>
-              <ul class="step-detail">
-                <li>工作与实习分别保存，不靠时长猜类型</li>
-                <li>公司项目关联到具体任职</li>
-                <li>缺失、冲突和不公开分别保留</li>
-              </ul>
+          <details name="workflow">
+            <summary><span class="step-number">2.0</span><strong>上传旧简历，或从零填写</strong><small>准备真实素材</small><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5v14"/></svg></summary>
+            <div class="workflow-detail">
+              <div class="step-copy">
+                <p>有旧简历就直接上传；没有就从教育、工作、实习和项目开始。目标公司、具体职位和 JD 分开填写。</p>
+                <ul class="step-detail">
+                  <li>工作与实习分别保存，不靠时长猜类型</li>
+                  <li>公司项目关联到具体任职</li>
+                  <li>缺失、冲突和不公开分别保留</li>
+                </ul>
+              </div>
+              <figure class="product-shot">
+                <img src="assets/intake-workflow.png" width="1440" height="1000" loading="lazy" alt="六步简历资料收集界面，左侧显示求职阶段、投递目标、教育、工作与实习、个人信息和检查提交">
+                <figcaption>六步资料收集，一次提交；公共示例只使用 XX 占位符。</figcaption>
+              </figure>
             </div>
-            <figure class="product-shot">
-              <img src="assets/intake-workflow.png" width="1440" height="1000" loading="lazy" alt="六步简历资料收集界面，左侧显示求职阶段、投递目标、教育、工作与实习、个人信息和检查提交">
-              <figcaption>六步资料收集，一次提交；公共示例只使用 XX 占位符。</figcaption>
-            </figure>
-          </li>
+          </details>
 
-          <li class="workflow-step">
-            <div class="step-copy">
-              <span class="step-number">3.0</span>
-              <h3>先确认内容，再选真实模板</h3>
-              <p>Skill 根据目标岗位决定重点、顺序和详略。你先核对正文，再在 18 款模板中切换当前内容的实际排版。</p>
-              <ul class="step-detail">
-                <li>换公司、职位或 JD 后重新制定策略</li>
-                <li>每条正文绑定已确认事实</li>
-                <li>超页或渲染失败的模板不能确认</li>
-              </ul>
+          <details name="workflow">
+            <summary><span class="step-number">3.0</span><strong>确认内容，再选模板</strong><small>可反复修改</small><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5v14"/></svg></summary>
+            <div class="workflow-detail">
+              <div class="step-copy">
+                <p>Skill 根据目标岗位决定重点、顺序和详略。你先核对正文，再在 18 款模板中切换当前内容的实际排版。</p>
+                <ul class="step-detail">
+                  <li>换公司、职位或 JD 后重新制定策略</li>
+                  <li>每条正文绑定已确认事实</li>
+                  <li>超页或渲染失败的模板不能确认</li>
+                </ul>
+              </div>
+              <figure class="product-shot">
+                <img src="assets/template-gallery.png" width="1440" height="1000" loading="lazy" alt="18 款简历模板图库界面，展示经典网申单栏、现代专业单栏和教育与项目突出模板">
+                <figcaption>模板不是装饰缩略图；切换后看到的是实际 Word/PDF 样张。</figcaption>
+              </figure>
             </div>
-            <figure class="product-shot">
-              <img src="assets/template-gallery.png" width="1440" height="1000" loading="lazy" alt="18 款简历模板图库界面，展示经典网申单栏、现代专业单栏和教育与项目突出模板">
-              <figcaption>模板不是装饰缩略图；切换后看到的是实际 Word/PDF 样张。</figcaption>
-            </figure>
-          </li>
+          </details>
 
-          <li class="workflow-step">
-            <div class="step-copy">
-              <span class="step-number">4.0</span>
-              <h3>看完全部页图，再定稿下载</h3>
-              <p>确认内容和模板后生成 Word、PDF 与全部 PNG。你查看每一页，确认排版、日期、照片和分页后才交付。</p>
-              <ul class="step-detail">
-                <li>Word 可继续编辑</li>
-                <li>PDF 保留文字层</li>
-                <li>PNG 覆盖全部页面</li>
-              </ul>
+          <details name="workflow">
+            <summary><span class="step-number">4.0</span><strong>查看页图，定稿下载</strong><small>Word / PDF / PNG</small><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5v14"/></svg></summary>
+            <div class="workflow-detail">
+              <div class="step-copy">
+                <p>确认内容和模板后生成 Word、PDF 与全部 PNG。你查看每一页，确认排版、日期、照片和分页后才交付。</p>
+                <ul class="step-detail">
+                  <li>Word 可继续编辑</li>
+                  <li>PDF 保留文字层</li>
+                  <li>PNG 覆盖全部页面</li>
+                </ul>
+              </div>
+              <figure class="product-shot">
+                <img src="assets/case-final-preview.png" width="1440" height="1000" loading="lazy" alt="虚构案例的最终简历实际排版预览页面">
+                <figcaption>真实内容的实际排版预览；明确标注当前模板、页数和定稿要求。</figcaption>
+              </figure>
             </div>
-            <figure class="product-shot">
-              <img src="assets/case-final-preview.png" width="1440" height="1000" loading="lazy" alt="虚构案例的最终简历实际排版预览页面">
-              <figcaption>真实内容的实际排版预览；明确标注当前模板、页数和定稿要求。</figcaption>
-            </figure>
-          </li>
-        </ol>
+          </details>
+        </div>
       </div>
     </section>
 
