@@ -10,8 +10,8 @@
   <meta property="og:title" content="AI PM Resume — 从资料到可投递简历的完整流程">
   <meta property="og:description" content="看清怎么用、改写前后和 18 款真实模板，再决定是否购买。">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%232b55ef'/%3E%3Cpath d='M23 45 29 18h10l-2 8c3-3 6-5 10-5l-3 10c-5 0-9 3-11 14Z' fill='white'/%3E%3C/svg%3E">
-  <link rel="stylesheet" href="tokens.css?v=3.15.0">
-  <link rel="stylesheet" href="styles.css?v=3.15.0">
+  <link rel="stylesheet" href="tokens.css?v=3.16.0">
+  <link rel="stylesheet" href="styles.css?v=3.16.0">
   <title>AI PM Resume — 看清怎么用、案例和模板</title>
 </head>
 <body>
@@ -50,37 +50,11 @@
             <a class="btn btn--quiet" href="#case">直接看案例</a>
           </div>
         </div>
-        <figure class="hero-media product-demo" id="productDemo" aria-label="AI PM Resume 三步操作演示">
-          <div class="demo-toolbar">
-            <span class="demo-live"><i aria-hidden="true"></i>PRODUCT FLOW</span>
-            <div class="demo-progress" role="tablist" aria-label="切换操作阶段">
-              <button type="button" role="tab" aria-selected="true" data-demo-step="0"><span data-short="01">资料</span></button>
-              <button type="button" role="tab" aria-selected="false" tabindex="-1" data-demo-step="1"><span data-short="02">模板</span></button>
-              <button type="button" role="tab" aria-selected="false" tabindex="-1" data-demo-step="2"><span data-short="03">交付</span></button>
-            </div>
-            <button class="demo-toggle" type="button" aria-pressed="false" aria-label="暂停操作演示">
-              <svg class="icon demo-pause-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14M16 5v14"/></svg>
-              <svg class="icon demo-play-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 5 11 7-11 7Z"/></svg>
-            </button>
-          </div>
-          <div class="demo-viewport">
-            <img class="demo-frame is-active" data-demo-frame data-title="上传旧简历，或从零填写" data-detail="先核对事实，再进入写作" data-cursor-x="82" data-cursor-y="78" src="assets/intake-workflow.png" width="1440" height="1000" fetchpriority="high" alt="六步简历资料收集界面">
-            <img class="demo-frame" data-demo-frame data-title="确认内容，切换真实模板" data-detail="18 款结构使用当前内容排版" data-cursor-x="49" data-cursor-y="43" src="assets/template-gallery.png" width="1440" height="1000" alt="18 款真实简历模板选择界面">
-            <img class="demo-frame" data-demo-frame data-title="查看全部页图，确认后交付" data-detail="Word、PDF 与全部 PNG 保持同版" data-cursor-x="85" data-cursor-y="16" src="assets/case-final-preview.png" width="1440" height="1000" alt="最终简历实际排版预览界面">
-            <div class="demo-scan" aria-hidden="true"></div>
-            <div class="demo-cursor" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="m5 3 13 10-7 1 3 6-3 1-3-6-4 5Z"/></svg>
-              <i></i>
-            </div>
-            <div class="demo-status">
-              <span class="demo-count">01 / 03</span>
-              <strong class="demo-title">上传旧简历，或从零填写</strong>
-              <span class="demo-detail">先核对事实，再进入写作</span>
-            </div>
-          </div>
+        <figure class="hero-media">
+          <img src="assets/case-final-preview.png" width="1440" height="1000" fetchpriority="high" alt="虚构案例的简历实际排版预览，展示最终一页简历和定稿检查提示">
           <figcaption class="hero-caption">
-            <span>真实产品界面演示。可手动切换阶段或暂停。</span>
-            <span class="hero-proof">SYNTHETIC DATA · INTERACTIVE DEMO</span>
+            <span>最终交付前看到的是当前真实内容的全部页图，不是模板样张。</span>
+            <span class="hero-proof">SYNTHETIC DEMO · T02 · 1 PAGE</span>
           </figcaption>
         </figure>
       </div>
@@ -140,15 +114,24 @@
                   <li>页面不收集简历，所有制作发生在你的 Agent 中</li>
                 </ul>
               </div>
-              <div class="code-block">
-                <pre id="installCode">.trae/skills/ai-pm-resume/SKILL.md
-
-在 Agent 中输入：
-使用 ai-pm-resume 帮我生成 AI 产品经理简历。</pre>
-                <button class="copy-btn" type="button" data-copy="installCode">
-                  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="11" height="11" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg>
-                  <span class="copy-label">复制</span>
-                </button>
+              <div class="operation-demo demo-install" data-step-demo aria-label="安装 Skill 操作动画">
+                <div class="operation-bar"><span><i></i>STEP 01 · INSTALL</span><button type="button" data-demo-replay aria-label="重新播放安装动画"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 5.7M20 4v7h-7"/></svg></button></div>
+                <div class="install-stage">
+                  <div class="file-tree">
+                    <span class="tree-root">.trae</span>
+                    <span>└ skills</span>
+                    <span class="install-folder">　└ ai-pm-resume</span>
+                    <span class="install-skill">　　└ SKILL.md</span>
+                  </div>
+                  <div class="terminal">
+                    <span class="terminal-label">AGENT</span>
+                    <p class="terminal-command">使用 ai-pm-resume 帮我生成 AI 产品经理简历</p>
+                    <p class="terminal-ready"><b>✓</b> Skill 已加载，可以开始收集资料</p>
+                  </div>
+                  <span class="demo-pointer install-pointer" aria-hidden="true"></span>
+                </div>
+                <div class="operation-foot"><span>文件夹放入技能目录 → 对 Agent 说一句话</span><button class="copy-btn" type="button" data-copy="installCode"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="11" height="11" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg><span class="copy-label">复制指令</span></button></div>
+                <pre id="installCode" hidden>使用 ai-pm-resume 帮我生成 AI 产品经理简历。</pre>
               </div>
             </div>
           </details>
@@ -164,10 +147,20 @@
                   <li>缺失、冲突和不公开分别保留</li>
                 </ul>
               </div>
-              <figure class="product-shot">
-                <img src="assets/intake-workflow.png" width="1440" height="1000" loading="lazy" alt="六步简历资料收集界面，左侧显示求职阶段、投递目标、教育、工作与实习、个人信息和检查提交">
-                <figcaption>六步资料收集，一次提交；公共示例只使用 XX 占位符。</figcaption>
-              </figure>
+              <div class="operation-demo demo-intake" data-step-demo aria-label="上传简历和资料提取操作动画">
+                <div class="operation-bar"><span><i></i>STEP 02 · INTAKE</span><button type="button" data-demo-replay aria-label="重新播放资料收集动画"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 5.7M20 4v7h-7"/></svg></button></div>
+                <div class="intake-stage">
+                  <nav class="intake-nav" aria-hidden="true"><b>资料收集</b><span class="active">求职阶段</span><span>投递目标</span><span>教育经历</span><span>工作 / 实习</span><span>检查提交</span></nav>
+                  <div class="intake-work">
+                    <div class="upload-zone"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V4M7 9l5-5 5 5M5 14v6h14v-6"/></svg><strong>拖入旧简历</strong><small>PDF / DOCX / 图片</small></div>
+                    <div class="resume-file"><b>旧简历.pdf</b><span>1.8 MB</span></div>
+                    <div class="parse-line"><span></span></div>
+                    <div class="intake-fields"><p><small>目标岗位</small><b>AI 产品经理</b></p><p><small>工作经历</small><b>2 条已提取</b></p><p><small>项目经历</small><b>3 条待确认</b></p></div>
+                  </div>
+                  <span class="demo-pointer intake-pointer" aria-hidden="true"></span>
+                </div>
+                <div class="operation-foot"><span class="demo-caption">上传 → 提取 → 补充 → 一次确认</span><span class="demo-state">资料可修改</span></div>
+              </div>
             </div>
           </details>
 
@@ -182,10 +175,16 @@
                   <li>超页或渲染失败的模板不能确认</li>
                 </ul>
               </div>
-              <figure class="product-shot">
-                <img src="assets/template-gallery.png" width="1440" height="1000" loading="lazy" alt="18 款简历模板图库界面，展示经典网申单栏、现代专业单栏和教育与项目突出模板">
-                <figcaption>模板不是装饰缩略图；切换后看到的是实际 Word/PDF 样张。</figcaption>
-              </figure>
+              <div class="operation-demo demo-template" data-step-demo aria-label="内容确认和模板切换操作动画">
+                <div class="operation-bar"><span><i></i>STEP 03 · REVIEW</span><button type="button" data-demo-replay aria-label="重新播放模板选择动画"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 5.7M20 4v7h-7"/></svg></button></div>
+                <div class="template-stage">
+                  <div class="rewrite-panel"><small>内容确认</small><p class="rewrite-before">参与知识库问答项目，协助优化体验。</p><p class="rewrite-after">定义引用与拒答规则，建立固定问题集并复测。</p><span class="rewrite-status">内容已确认</span></div>
+                  <div class="template-picker" aria-hidden="true"><span class="template-thumb t-a"></span><span class="template-thumb t-b"></span><span class="template-thumb t-c"></span></div>
+                  <div class="live-page" aria-hidden="true"><i></i><b></b><span></span><span></span><span></span><em></em></div>
+                  <span class="demo-pointer template-pointer" aria-hidden="true"></span>
+                </div>
+                <div class="operation-foot"><span>先确认正文，再切换当前内容的真实排版</span><span class="demo-state">18 款可选</span></div>
+              </div>
             </div>
           </details>
 
@@ -200,10 +199,16 @@
                   <li>PNG 覆盖全部页面</li>
                 </ul>
               </div>
-              <figure class="product-shot">
-                <img src="assets/case-final-preview.png" width="1440" height="1000" loading="lazy" alt="虚构案例的最终简历实际排版预览页面">
-                <figcaption>真实内容的实际排版预览；明确标注当前模板、页数和定稿要求。</figcaption>
-              </figure>
+              <div class="operation-demo demo-export" data-step-demo aria-label="排版检查和文件导出操作动画">
+                <div class="operation-bar"><span><i></i>STEP 04 · DELIVERY</span><button type="button" data-demo-replay aria-label="重新播放文件交付动画"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 5.7M20 4v7h-7"/></svg></button></div>
+                <div class="export-stage">
+                  <div class="preview-page" aria-hidden="true"><b>小林</b><i></i><span></span><span></span><span></span><span></span></div>
+                  <div class="check-list"><p><i></i>内容与日期</p><p><i></i>边界与分页</p><p><i></i>照片与文字层</p></div>
+                  <div class="export-files"><span>DOCX</span><span>PDF</span><span>PNG</span></div>
+                  <span class="demo-pointer export-pointer" aria-hidden="true"></span>
+                </div>
+                <div class="operation-foot"><span>逐页确认后，三种格式保持同版</span><span class="demo-state">准备下载</span></div>
+              </div>
             </div>
           </details>
         </div>
@@ -451,6 +456,6 @@
     </div>
   </dialog>
 
-  <script src="app.js?v=3.15.0"></script>
+  <script src="app.js?v=3.16.0"></script>
 </body>
 </html>
