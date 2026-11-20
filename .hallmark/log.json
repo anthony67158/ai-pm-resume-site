@@ -19,5 +19,12 @@
     "theme": "Cobalt-derived",
     "enrichment": "four step-specific operation loops inside expanded workflow panels",
     "brief": "Demonstrate installation, intake, template selection, and delivery in context"
+  },
+  {
+    "date": "2026-11-20",
+    "macrostructure": "Narrated state-machine Workbench",
+    "theme": "Cobalt-derived",
+    "enrichment": "three-beat Chinese narration, cursor target, state change, and progress for each workflow step",
+    "brief": "Make every operation understandable to people unfamiliar with agents or skills"
   }
 ]

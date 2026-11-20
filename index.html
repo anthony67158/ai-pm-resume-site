@@ -10,8 +10,8 @@
   <meta property="og:title" content="AI PM Resume — 从资料到可投递简历的完整流程">
   <meta property="og:description" content="看清怎么用、改写前后和 18 款真实模板，再决定是否购买。">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%232b55ef'/%3E%3Cpath d='M23 45 29 18h10l-2 8c3-3 6-5 10-5l-3 10c-5 0-9 3-11 14Z' fill='white'/%3E%3C/svg%3E">
-  <link rel="stylesheet" href="tokens.css?v=3.16.0">
-  <link rel="stylesheet" href="styles.css?v=3.16.0">
+  <link rel="stylesheet" href="tokens.css?v=3.17.0">
+  <link rel="stylesheet" href="styles.css?v=3.17.0">
   <title>AI PM Resume — 看清怎么用、案例和模板</title>
 </head>
 <body>
@@ -115,7 +115,8 @@
                 </ul>
               </div>
               <div class="operation-demo demo-install" data-step-demo aria-label="安装 Skill 操作动画">
-                <div class="operation-bar"><span><i></i>STEP 01 · INSTALL</span><button type="button" data-demo-replay aria-label="重新播放安装动画"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 5.7M20 4v7h-7"/></svg></button></div>
+                <div class="operation-bar"><span><i></i>安装操作演示</span><button type="button" data-demo-replay aria-label="重新播放安装动画"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 5.7M20 4v7h-7"/></svg></button></div>
+                <div class="demo-narration"><span data-demo-count>1 / 3</span><strong data-demo-caption>把 Skill 文件夹放进技能目录</strong></div>
                 <div class="install-stage">
                   <div class="file-tree">
                     <span class="tree-root">.trae</span>
@@ -124,13 +125,13 @@
                     <span class="install-skill">　　└ SKILL.md</span>
                   </div>
                   <div class="terminal">
-                    <span class="terminal-label">AGENT</span>
+                    <span class="terminal-label">在 Agent 对话框输入</span>
                     <p class="terminal-command">使用 ai-pm-resume 帮我生成 AI 产品经理简历</p>
                     <p class="terminal-ready"><b>✓</b> Skill 已加载，可以开始收集资料</p>
                   </div>
                   <span class="demo-pointer install-pointer" aria-hidden="true"></span>
                 </div>
-                <div class="operation-foot"><span>文件夹放入技能目录 → 对 Agent 说一句话</span><button class="copy-btn" type="button" data-copy="installCode"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="11" height="11" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg><span class="copy-label">复制指令</span></button></div>
+                <div class="operation-foot"><ol class="demo-timeline"><li>放入文件夹</li><li>输入指令</li><li>加载成功</li></ol><button class="copy-btn" type="button" data-copy="installCode"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="11" height="11" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg><span class="copy-label">复制指令</span></button></div>
                 <pre id="installCode" hidden>使用 ai-pm-resume 帮我生成 AI 产品经理简历。</pre>
               </div>
             </div>
@@ -148,18 +149,20 @@
                 </ul>
               </div>
               <div class="operation-demo demo-intake" data-step-demo aria-label="上传简历和资料提取操作动画">
-                <div class="operation-bar"><span><i></i>STEP 02 · INTAKE</span><button type="button" data-demo-replay aria-label="重新播放资料收集动画"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 5.7M20 4v7h-7"/></svg></button></div>
+                <div class="operation-bar"><span><i></i>资料收集操作演示</span><button type="button" data-demo-replay aria-label="重新播放资料收集动画"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 5.7M20 4v7h-7"/></svg></button></div>
+                <div class="demo-narration"><span data-demo-count>1 / 3</span><strong data-demo-caption>点击上传旧简历；没有简历也可以从零填写</strong></div>
                 <div class="intake-stage">
                   <nav class="intake-nav" aria-hidden="true"><b>资料收集</b><span class="active">求职阶段</span><span>投递目标</span><span>教育经历</span><span>工作 / 实习</span><span>检查提交</span></nav>
                   <div class="intake-work">
-                    <div class="upload-zone"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V4M7 9l5-5 5 5M5 14v6h14v-6"/></svg><strong>拖入旧简历</strong><small>PDF / DOCX / 图片</small></div>
+                    <div class="upload-zone"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V4M7 9l5-5 5 5M5 14v6h14v-6"/></svg><strong>点击上传旧简历</strong><small>或选择“从零填写”</small></div>
                     <div class="resume-file"><b>旧简历.pdf</b><span>1.8 MB</span></div>
                     <div class="parse-line"><span></span></div>
                     <div class="intake-fields"><p><small>目标岗位</small><b>AI 产品经理</b></p><p><small>工作经历</small><b>2 条已提取</b></p><p><small>项目经历</small><b>3 条待确认</b></p></div>
+                    <button class="demo-confirm intake-confirm" type="button">确认资料，进入改写</button>
                   </div>
                   <span class="demo-pointer intake-pointer" aria-hidden="true"></span>
                 </div>
-                <div class="operation-foot"><span class="demo-caption">上传 → 提取 → 补充 → 一次确认</span><span class="demo-state">资料可修改</span></div>
+                <div class="operation-foot"><ol class="demo-timeline"><li>上传简历</li><li>自动提取</li><li>检查确认</li></ol></div>
               </div>
             </div>
           </details>
@@ -176,14 +179,15 @@
                 </ul>
               </div>
               <div class="operation-demo demo-template" data-step-demo aria-label="内容确认和模板切换操作动画">
-                <div class="operation-bar"><span><i></i>STEP 03 · REVIEW</span><button type="button" data-demo-replay aria-label="重新播放模板选择动画"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 5.7M20 4v7h-7"/></svg></button></div>
+                <div class="operation-bar"><span><i></i>内容与模板操作演示</span><button type="button" data-demo-replay aria-label="重新播放模板选择动画"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 5.7M20 4v7h-7"/></svg></button></div>
+                <div class="demo-narration"><span data-demo-count>1 / 3</span><strong data-demo-caption>先看改写前后，确认没有编造事实</strong></div>
                 <div class="template-stage">
-                  <div class="rewrite-panel"><small>内容确认</small><p class="rewrite-before">参与知识库问答项目，协助优化体验。</p><p class="rewrite-after">定义引用与拒答规则，建立固定问题集并复测。</p><span class="rewrite-status">内容已确认</span></div>
+                  <div class="rewrite-panel"><small>改写前</small><p class="rewrite-before">参与知识库问答项目，协助优化体验。</p><small class="after-label">改写后</small><p class="rewrite-after">定义引用与拒答规则，建立固定问题集并复测。</p><button class="demo-confirm rewrite-confirm" type="button">确认内容真实</button><span class="rewrite-status">✓ 内容已确认</span></div>
                   <div class="template-picker" aria-hidden="true"><span class="template-thumb t-a"></span><span class="template-thumb t-b"></span><span class="template-thumb t-c"></span></div>
                   <div class="live-page" aria-hidden="true"><i></i><b></b><span></span><span></span><span></span><em></em></div>
                   <span class="demo-pointer template-pointer" aria-hidden="true"></span>
                 </div>
-                <div class="operation-foot"><span>先确认正文，再切换当前内容的真实排版</span><span class="demo-state">18 款可选</span></div>
+                <div class="operation-foot"><ol class="demo-timeline"><li>核对改写</li><li>确认内容</li><li>选择模板</li></ol></div>
               </div>
             </div>
           </details>
@@ -200,14 +204,16 @@
                 </ul>
               </div>
               <div class="operation-demo demo-export" data-step-demo aria-label="排版检查和文件导出操作动画">
-                <div class="operation-bar"><span><i></i>STEP 04 · DELIVERY</span><button type="button" data-demo-replay aria-label="重新播放文件交付动画"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 5.7M20 4v7h-7"/></svg></button></div>
+                <div class="operation-bar"><span><i></i>定稿下载操作演示</span><button type="button" data-demo-replay aria-label="重新播放文件交付动画"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 5.7M20 4v7h-7"/></svg></button></div>
+                <div class="demo-narration"><span data-demo-count>1 / 3</span><strong data-demo-caption>先查看整页预览，确认没有分页或排版问题</strong></div>
                 <div class="export-stage">
                   <div class="preview-page" aria-hidden="true"><b>小林</b><i></i><span></span><span></span><span></span><span></span></div>
                   <div class="check-list"><p><i></i>内容与日期</p><p><i></i>边界与分页</p><p><i></i>照片与文字层</p></div>
                   <div class="export-files"><span>DOCX</span><span>PDF</span><span>PNG</span></div>
+                  <button class="demo-confirm export-confirm" type="button">确认定稿并下载</button>
                   <span class="demo-pointer export-pointer" aria-hidden="true"></span>
                 </div>
-                <div class="operation-foot"><span>逐页确认后，三种格式保持同版</span><span class="demo-state">准备下载</span></div>
+                <div class="operation-foot"><ol class="demo-timeline"><li>查看页图</li><li>通过检查</li><li>下载文件</li></ol></div>
               </div>
             </div>
           </details>
@@ -456,6 +462,6 @@
     </div>
   </dialog>
 
-  <script src="app.js?v=3.16.0"></script>
+  <script src="app.js?v=3.17.0"></script>
 </body>
 </html>

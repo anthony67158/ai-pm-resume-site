@@ -10,27 +10,91 @@
   window.addEventListener("scroll", setNavState, { passive: true });
 
   const workflowSteps = $$(".workflow-accordion details");
-  const replayStepDemo = (demo) => {
+  const demoScripts = [
+    ["把 Skill 文件夹放进技能目录", "在 Agent 输入一句启动指令", "看到“Skill 已加载”就可以开始"],
+    ["点击上传旧简历；没有简历也可以从零填写", "Skill 自动提取教育、工作和项目经历", "检查提取结果，再确认进入改写"],
+    ["先看改写前后，确认没有编造事实", "点击“确认内容真实”", "再选模板，右侧立即显示真实排版"],
+    ["先查看整页预览，确认没有分页或排版问题", "等待内容、分页和文字层检查通过", "点击定稿，下载 Word、PDF 和全部 PNG"]
+  ];
+  const demoTimers = new WeakMap();
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  const stopStepDemo = (demo) => {
     if (!demo) return;
-    demo.classList.remove("is-running");
-    void demo.offsetWidth;
-    demo.classList.add("is-running");
+    const timers = demoTimers.get(demo);
+    if (timers) {
+      window.clearInterval(timers.interval);
+      window.clearTimeout(timers.click);
+    }
+    demoTimers.delete(demo);
+    demo.classList.remove("is-playing", "is-clicking");
   };
+
+  const renderDemoPhase = (demo, phase) => {
+    const index = $$("[data-step-demo]").indexOf(demo);
+    const script = demoScripts[index] || demoScripts[0];
+    const nextPhase = Math.max(0, Math.min(phase, script.length - 1));
+    demo.dataset.phase = String(nextPhase);
+    $("[data-demo-count]", demo).textContent = `${nextPhase + 1} / ${script.length}`;
+    $("[data-demo-caption]", demo).textContent = script[nextPhase];
+    $$(".demo-timeline li", demo).forEach((item, itemIndex) => {
+      item.classList.toggle("is-active", itemIndex === nextPhase);
+      item.classList.toggle("is-done", itemIndex < nextPhase);
+    });
+    demo.classList.remove("is-clicking");
+    const timers = demoTimers.get(demo) || {};
+    window.clearTimeout(timers.click);
+    if (!reduceMotion.matches) {
+      timers.click = window.setTimeout(() => demo.classList.add("is-clicking"), 650);
+    }
+    demoTimers.set(demo, timers);
+  };
+
+  const playStepDemo = (demo) => {
+    if (!demo) return;
+    stopStepDemo(demo);
+    demo.classList.add("is-playing");
+    if (reduceMotion.matches) {
+      renderDemoPhase(demo, 2);
+      return;
+    }
+    let phase = 0;
+    renderDemoPhase(demo, phase);
+    const timers = demoTimers.get(demo) || {};
+    timers.interval = window.setInterval(() => {
+      phase = (phase + 1) % 3;
+      renderDemoPhase(demo, phase);
+    }, 2600);
+    demoTimers.set(demo, timers);
+  };
+
   workflowSteps.forEach((step) => {
     step.addEventListener("toggle", () => {
       const demo = $("[data-step-demo]", step);
       if (!step.open) {
-        demo?.classList.remove("is-running");
+        stopStepDemo(demo);
         return;
       }
       workflowSteps.forEach((other) => {
         if (other !== step) other.open = false;
       });
-      replayStepDemo(demo);
+      playStepDemo(demo);
     });
   });
   $$("[data-demo-replay]").forEach((button) => {
-    button.addEventListener("click", () => replayStepDemo(button.closest("[data-step-demo]")));
+    button.addEventListener("click", () => playStepDemo(button.closest("[data-step-demo]")));
+  });
+  $$(".demo-confirm").forEach((button) => {
+    button.addEventListener("click", () => {
+      const demo = button.closest("[data-step-demo]");
+      const next = Math.min(Number(demo.dataset.phase || 0) + 1, 2);
+      renderDemoPhase(demo, next);
+    });
+  });
+  document.addEventListener("visibilitychange", () => {
+    const openDemo = $(".workflow-accordion details[open] [data-step-demo]");
+    if (document.hidden) stopStepDemo(openDemo);
+    else if (openDemo) playStepDemo(openDemo);
   });
 
   const copyButtons = $$("[data-copy]");
