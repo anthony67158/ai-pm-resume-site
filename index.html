@@ -28,7 +28,7 @@ button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid var
 .dark{background:var(--ink);color:var(--bg)}
 .outline,.light{background:transparent;border-color:var(--ink);color:var(--ink)}
 .arrow{font-size:22px;font-family:var(--font);line-height:1}
-.brand{display:inline-flex;align-items:center;gap:10px;white-space:nowrap;font-size:18px;font-weight:700;letter-spacing:-.6px}
+.brand{display:inline-flex;align-items:center;gap:10px;white-space:nowrap;font-size:18px;font-weight:700;letter-spacing:0}
 .mark{display:grid;place-items:center;height:36px;width:36px;border-radius:50%;background:var(--blue);color:white;font:800 28px/1 var(--display);font-style:italic}
 .nav{height:94px;display:flex;align-items:center;justify-content:space-between;gap:24px}
 .navlinks{display:flex;gap:34px;font-size:13px}
@@ -39,7 +39,7 @@ button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid var
 .hero-copy{position:relative;z-index:2}
 .eyebrow{font:11px/1.5 var(--mono);letter-spacing:.08em;display:flex;gap:11px;align-items:center}
 .eyebrow:before{content:"";width:8px;height:8px;background:var(--blue);border-radius:50%;flex-shrink:0}
-.hero h1{font-size:clamp(52px,5.5vw,80px);letter-spacing:-3.5px;line-height:1.16;font-weight:800;margin-top:24px}
+.hero h1{font-size:80px;letter-spacing:0;line-height:1.16;font-weight:800;margin-top:24px}
 .hero h1>span{display:block}
 .hero h1 .loud{display:inline-block;color:var(--blue);position:relative;margin-top:3px}
 .loud:after{content:"";position:absolute;left:-3px;right:-12px;height:9px;background:var(--lime);bottom:1px;z-index:-1;transform:rotate(-2deg)}
@@ -65,7 +65,7 @@ button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid var
 .blank-lines span{display:flex;justify-content:space-between;border-bottom:1px solid #b9b6ab;padding-bottom:3px}
 .blank-lines b{font-weight:400;color:#68695e}
 .new-paper{position:absolute;top:91px;right:24px;width:312px;min-height:390px;background:#fffefa;transform:rotate(7deg);padding:27px 30px;border:1px solid var(--ink);box-shadow:8px 8px 0 var(--blue);z-index:2}
-.new-paper .paper-title{font-size:26px;font-weight:700;line-height:1.3;letter-spacing:-1px}
+.new-paper .paper-title{font-size:26px;font-weight:700;line-height:1.3;letter-spacing:0}
 .paper-role{font-size:9px;color:var(--blue);margin-top:5px}
 .paper-info{font-size:8px;color:#6a6b65;border-bottom:2px solid var(--ink);padding:8px 0 12px}
 .new-paper h3{font-size:11px;color:var(--blue);margin-top:16px;border-bottom:1px solid #d6d7cd;padding-bottom:5px;font-weight:600}
@@ -113,7 +113,7 @@ button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid var
 .pain-area .eyebrow{color:#d2d4c7}
 .pain-area .eyebrow:before{background:var(--coral)}
 .pain-top{display:flex;justify-content:space-between;align-items:flex-end;gap:40px}
-.pain-heading{font-size:clamp(35px,4.2vw,58px);line-height:1.27;letter-spacing:-2px;margin-top:20px;font-weight:750}
+.pain-heading{font-size:58px;line-height:1.27;letter-spacing:0;margin-top:20px;font-weight:750}
 .pain-heading span{color:var(--lime)}
 .pain-intro{font-size:13px;color:#c8cbbe;margin-top:18px;max-width:340px;line-height:1.8}
 .pain-tabs{display:flex;gap:13px;margin-top:38px;align-items:stretch}
@@ -180,7 +180,7 @@ button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid var
 .purchase{background:var(--coral);padding:77px 0 71px;position:relative}
 .buygrid{display:grid;grid-template-columns:1.1fr 1fr;gap:100px;align-items:center}
 .purchase .eyebrow:before{background:var(--ink)}
-.purchase h2{font-size:clamp(35px,4.1vw,58px);line-height:1.25;font-weight:750;letter-spacing:-2px;margin-top:20px}
+.purchase h2{font-size:58px;line-height:1.25;font-weight:750;letter-spacing:0;margin-top:20px}
 .purchase h2 .under{display:inline-block;position:relative;z-index:0}
 .under:after{content:"";position:absolute;bottom:1px;left:-4px;right:-8px;height:10px;background:var(--lime);transform:rotate(-2deg);z-index:-1}
 .purchase p{font-size:13px;color:#542f25;margin-top:22px;line-height:1.9}
@@ -193,14 +193,14 @@ button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid var
 .buytop{display:flex;justify-content:space-between;gap:14px;align-items:center;font-size:10px;color:#e0e6ff}
 .buytop .brand{font-size:18px}
 .buytop .mark{background:var(--lime);color:var(--ink);width:32px;height:32px}
-.price{font-size:40px;font-weight:700;letter-spacing:-1.5px;margin-top:29px;line-height:1.4}
+.price{font-size:40px;font-weight:700;letter-spacing:0;margin-top:29px;line-height:1.4}
 .price small{font-size:10px;font-weight:400;letter-spacing:0;display:block;color:#e0e5ff;margin-top:3px}
 .buybox .button{width:100%;background:var(--lime);color:var(--ink);border-color:var(--ink);border-radius:3px;margin-top:25px;min-height:54px;gap:20px}
 .buybox .terms{color:#e7ebff;font-size:10px;margin-top:12px;text-align:center}
 .buybottom{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:23px;padding-top:19px;border-top:1px solid #ffffff50}
 .linkbutton{border:0;background:transparent;color:inherit;font-size:11px;text-decoration:underline;text-underline-offset:5px;min-height:32px;padding:5px 0}
 .detailsarea{display:grid;grid-template-columns:1fr 2fr;gap:70px;padding-top:55px;padding-bottom:55px}
-.details-label{font-size:32px;font-weight:700;letter-spacing:-1px;line-height:1.4}
+.details-label{font-size:32px;font-weight:700;letter-spacing:0;line-height:1.4}
 .details-label small{display:block;font:10px/1.8 var(--mono);font-weight:400;letter-spacing:.04em;color:var(--muted);margin-top:12px}
 .detailsarea details{border-bottom:1px solid var(--line)}
 .detailsarea details:first-child{border-top:1px solid var(--line)}
@@ -218,21 +218,41 @@ button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid var
 .skip:focus{top:10px}
 [hidden]{display:none!important}
 .sr-only{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
-dialog{padding:0;border:1.5px solid var(--ink);border-radius:10px;background:var(--bg);color:var(--ink);width:min(470px,calc(100% - 32px));max-height:calc(100dvh - 32px);box-shadow:7px 7px 0 var(--ink)}
+dialog{padding:0;border:1.5px solid var(--ink);border-radius:10px;background:var(--bg);color:var(--ink);width:min(470px,calc(100% - 32px));max-height:calc(100dvh - 32px);overflow:auto;scrollbar-gutter:stable;box-shadow:7px 7px 0 var(--ink)}
 dialog::backdrop{background:#15160fa6;backdrop-filter:blur(5px)}
-.modalhead{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:16px 23px;background:var(--blue);color:white;font-size:13px}
+.modalhead{position:sticky;top:0;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:14px 23px;background:var(--blue);color:white;font-size:13px}
 .close{width:34px;height:34px;border:0;border-radius:50%;background:var(--lime);color:var(--ink);font-size:23px;line-height:1}
-.modalbody{padding:27px}
-.modalbody h2{font-size:26px;line-height:1.4;letter-spacing:-.7px}
+.modalbody{padding:23px 27px 25px}
+.modalbody h2{font-size:26px;line-height:1.4;letter-spacing:0}
 .modalbody p{font-size:12px;color:#62665a;margin-top:12px}
 .summarybox{display:flex;align-items:center;gap:13px;padding:16px;background:#eeeee2;border:1px solid var(--line);border-radius:6px;margin-top:20px}
 .summarybox strong{font-size:14px}
 .summarybox small{display:block;font-size:10px;color:#64685a;margin-top:5px}
-.methods{display:flex;gap:12px;margin-top:20px}
-.methods button{border:1px solid var(--ink);border-radius:5px;background:white;color:var(--ink);padding:13px;flex:1;font-size:12px}
-.methods button[aria-pressed=true]{background:var(--lime);box-shadow:2px 2px 0 var(--ink)}
-.modalbody .button{width:100%;margin-top:22px}
-.modal-note{font-size:10px!important;line-height:1.9}
+.payment-actions{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}
+.payment-option{display:flex;align-items:center;gap:11px;min-width:0;border:1px solid var(--ink);border-radius:6px;background:#fff;color:var(--ink);padding:12px 13px;text-align:left;transition:transform .18s,box-shadow .18s}
+.payment-option:hover{transform:translateY(-2px);box-shadow:3px 3px 0 var(--ink)}
+.payment-option strong,.payment-option small{display:block}
+.payment-option strong{font-size:12px}
+.payment-option small{font-size:9px;color:#66685f;margin-top:2px}
+.pay-symbol{display:grid;place-items:center;width:34px;height:34px;border:1px solid var(--ink);border-radius:9px;color:#fff;flex-shrink:0;box-shadow:2px 2px 0 var(--ink)}
+.pay-symbol svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.wechat .pay-symbol{background:#07c160}
+.alipay .pay-symbol{background:#1677ff}
+.payment-state{font-size:10px;color:#e4e8ff;text-align:right;line-height:1.6}
+.payment-amount{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:11px 14px;border:1px solid var(--line);background:#eeeee2;margin-bottom:15px;font-size:11px}
+.payment-amount strong{font-size:25px;line-height:1;color:var(--blue)}
+.qr-panel{display:grid;place-items:center;margin-top:16px}
+.qr-frame{display:grid;place-items:center;width:min(220px,100%);aspect-ratio:1;background:#fff;border:1.5px solid var(--ink);box-shadow:5px 5px 0 var(--blue);padding:12px}
+.qr-image{display:block;width:100%;height:100%;object-fit:contain}
+.qr-placeholder{display:grid;place-items:center;align-content:center;gap:8px;width:100%;height:100%;border:1px dashed #a7a99e;background:#f6f6ee;text-align:center;padding:18px}
+.qr-placeholder svg{width:52px;height:52px;fill:none;stroke:var(--blue);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.qr-placeholder strong{font-size:15px}
+.qr-placeholder small{font-size:10px;color:#73756c;line-height:1.7}
+.payment-switch{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+.payment-switch button{border:1px solid var(--ink);border-radius:5px;background:#fff;color:var(--ink);padding:11px;font-size:11px}
+.payment-switch button[aria-pressed=true]{background:var(--lime);box-shadow:2px 2px 0 var(--ink)}
+.modalbody .button{width:100%;margin-top:16px}
+.modal-note{font-size:10px!important;line-height:1.9;border-left:3px solid var(--coral);padding-left:11px}
 .modalrow{display:flex;gap:12px}
 .modalrow .button{font-size:12px;padding:12px 9px}
 .statusmark{display:grid;place-items:center;width:68px;height:68px;font-size:33px;background:var(--lime);color:var(--ink);border-radius:50%;margin:0 auto 22px}
@@ -246,7 +266,7 @@ dialog::backdrop{background:#15160fa6;backdrop-filter:blur(5px)}
  .wrap{width:calc(100% - 64px)}.hero{gap:24px;min-height:610px}.hero h1{font-size:64px}.hero-art{height:493px}.new-paper{width:278px;padding:24px;right:14px;top:96px;min-height:366px}.back-paper{width:211px;left:9px;height:292px}.art-note{font-size:15px;right:0;padding:14px 20px}.star-sticker{width:112px;height:112px;left:34px}.star-sticker span{font-size:17px}.filetags{bottom:1px}.art-doodle{left:0;top:307px;width:113px}.hero-lead{font-size:14px;max-width:355px}.hero-actions{gap:16px}.hero-actions .button{font-size:13px;padding:13px 20px;gap:17px}.text-cta{font-size:12px}.path-row{grid-template-columns:1fr 30px 1fr 30px 124px;gap:7px}.source{padding:12px;gap:8px}.source strong{font-size:11px}.source small{font-size:8px}.engine{gap:10px}.engine-steps{gap:10px}.engine-steps span{font-size:11px}.flow-result{font-size:16px}.buygrid{gap:65px}.pain-tab{padding:15px 14px;gap:9px}.pain-tab strong{font-size:14px}.scene-art{padding:24px 23px;min-height:280px}.scene-result strong{font-size:15px}.scene{grid-template-columns:1fr 48px 1fr}
 }
 @media(max-width:900px){
- .hero{gap:12px}.hero h1{font-size:54px;letter-spacing:-2.8px}.hero-art{height:455px}.new-paper{width:238px;padding:21px;top:85px;right:13px;min-height:340px}.new-paper .paper-title{font-size:23px}.new-paper h3{font-size:10px;margin-top:13px}.new-paper p{font-size:8px}.new-paper .paper-row{font-size:9px}.paper-row small{font-size:7px}.back-paper{width:180px;height:267px;padding:23px 21px;top:54px;left:1px}.back-paper .old-head{font-size:16px}.back-paper p{font-size:9px}.art-note{font-size:13px;padding:12px 18px;top:0;right:0}.star-sticker{left:7px;bottom:0;width:105px;height:105px}.star-sticker span{font-size:16px}.art-doodle{width:103px;top:291px;left:-12px}.filetags{right:0;bottom:5px;gap:4px}.filetags span{font-size:9px;padding:6px 9px}.hero-actions{gap:11px}.hero-actions .button{font-size:12px;gap:13px;padding:13px 16px}.text-cta{font-size:11px;gap:9px}.hero-lead{font-size:13px}.eyebrow{font-size:9px}.hero-small{font-size:10px}.navlinks{gap:22px;font-size:12px}.nav .brand{font-size:16px}.path-row{grid-template-columns:1fr 28px 1fr;row-gap:20px}.flow-result{display:none}.path-row>.flow-arrow:last-of-type{display:none}.engine{gap:15px}.engine-steps span{font-size:12px}.source strong{font-size:12px}.source small{font-size:9px}.scene-bar{padding:16px;font-size:10px;gap:7px}.scene-bar b{font-size:8px;white-space:nowrap}.scene{grid-template-columns:1fr 34px 1fr}.scene-art{padding:23px 17px;min-height:297px}.scene-paper{padding:17px}.scene-line{font-size:11px}.scene-paper-title{font-size:11px}.scene-caption{font-size:10px}.scene-result{padding:17px;min-height:115px}.scene-result strong{font-size:14px}.scene-result p{font-size:10px}.pain-tab small{font-size:9px}.pain-tab strong{font-size:12px}.pain-tabs{gap:10px}.pain-tab{padding:14px 11px;gap:8px}.buygrid{gap:38px}.buybox{padding:25px 23px}.buytop .brand{font-size:14px}.buytop{font-size:9px}.get-list{gap:7px}.get-list span{font-size:9px;padding:5px 8px}.detailsarea{gap:35px;grid-template-columns:1fr 2fr}.layout-sketch{gap:13px}.sketch-page{width:103px;height:168px;padding:14px 12px}.good-page{width:150px;height:188px;padding:15px 16px}
+ .hero{gap:12px}.hero h1{font-size:54px;letter-spacing:0}.hero-art{height:455px}.new-paper{width:238px;padding:21px;top:85px;right:13px;min-height:340px}.new-paper .paper-title{font-size:23px}.new-paper h3{font-size:10px;margin-top:13px}.new-paper p{font-size:8px}.new-paper .paper-row{font-size:9px}.paper-row small{font-size:7px}.back-paper{width:180px;height:267px;padding:23px 21px;top:54px;left:1px}.back-paper .old-head{font-size:16px}.back-paper p{font-size:9px}.art-note{font-size:13px;padding:12px 18px;top:0;right:0}.star-sticker{left:7px;bottom:0;width:105px;height:105px}.star-sticker span{font-size:16px}.art-doodle{width:103px;top:291px;left:-12px}.filetags{right:0;bottom:5px;gap:4px}.filetags span{font-size:9px;padding:6px 9px}.hero-actions{gap:11px}.hero-actions .button{font-size:12px;gap:13px;padding:13px 16px}.text-cta{font-size:11px;gap:9px}.hero-lead{font-size:13px}.eyebrow{font-size:9px}.hero-small{font-size:10px}.navlinks{gap:22px;font-size:12px}.nav .brand{font-size:16px}.path-row{grid-template-columns:1fr 28px 1fr;row-gap:20px}.flow-result{display:none}.path-row>.flow-arrow:last-of-type{display:none}.engine{gap:15px}.engine-steps span{font-size:12px}.source strong{font-size:12px}.source small{font-size:9px}.scene-bar{padding:16px;font-size:10px;gap:7px}.scene-bar b{font-size:8px;white-space:nowrap}.scene{grid-template-columns:1fr 34px 1fr}.scene-art{padding:23px 17px;min-height:297px}.scene-paper{padding:17px}.scene-line{font-size:11px}.scene-paper-title{font-size:11px}.scene-caption{font-size:10px}.scene-result{padding:17px;min-height:115px}.scene-result strong{font-size:14px}.scene-result p{font-size:10px}.pain-tab small{font-size:9px}.pain-tab strong{font-size:12px}.pain-tabs{gap:10px}.pain-tab{padding:14px 11px;gap:8px}.buygrid{gap:38px}.buybox{padding:25px 23px}.buytop .brand{font-size:14px}.buytop{font-size:9px}.get-list{gap:7px}.get-list span{font-size:9px;padding:5px 8px}.detailsarea{gap:35px;grid-template-columns:1fr 2fr}.layout-sketch{gap:13px}.sketch-page{width:103px;height:168px;padding:14px 12px}.good-page{width:150px;height:188px;padding:15px 16px}
 }
 @media(min-width:681px) and (max-width:900px){
  .art-orbit{inset:65px 53px 50px;transform:rotate(-14deg)}
@@ -258,22 +278,22 @@ dialog::backdrop{background:#15160fa6;backdrop-filter:blur(5px)}
  .path-row{row-gap:13px}
 }
 @media(max-width:680px){
- .wrap{width:calc(100% - 40px)}.nav{height:76px;gap:12px}.navlinks{display:none}.nav .brand{font-size:15px;gap:8px}.nav .mark{width:31px;height:31px;font-size:24px}.nav .button{font-size:11px;padding:9px 13px;gap:10px;min-height:39px}
+ .wrap{width:calc(100% - 40px)}.nav{height:76px;gap:12px}.navlinks{display:none}.nav .brand{font-size:15px;gap:8px}.nav .mark{width:31px;height:31px;font-size:24px}.nav>.button{display:none}
  .hero{grid-template-columns:1fr;padding-top:28px;padding-bottom:30px;gap:35px;min-height:0}
- .eyebrow{font-size:9px;letter-spacing:.04em}.hero h1{font-size:clamp(48px,12.8vw,72px);letter-spacing:-2.6px;margin-top:19px;line-height:1.15}.hero h1>span:nth-child(2){display:inline-block}.hero h1 .loud{margin-top:0}.loud:after{height:7px;bottom:0}
+ .eyebrow{font-size:9px;letter-spacing:.04em}.hero h1{font-size:48px;letter-spacing:0;margin-top:19px;line-height:1.15}.hero h1>span:nth-child(2){display:block}.hero h1 .loud{display:block;width:max-content;margin-top:0}.loud:after{height:7px;bottom:0}
  .hero-lead{font-size:13px;margin-top:22px;max-width:390px}.hero-actions{margin-top:23px;gap:20px}.hero-actions .button{font-size:13px;padding:13px 20px;gap:18px}.text-cta{font-size:12px}.hero-small{font-size:10px;margin-top:15px}
- .hero-art{height:419px;max-width:410px;width:100%;margin:auto}.new-paper{width:238px;right:18px;top:66px;min-height:320px;padding:20px 22px}.back-paper{left:10px;top:38px;width:191px;height:270px;padding:24px}.art-note{right:0;top:0;font-size:13px;padding:10px 17px}.art-orbit{inset:60px 65px 55px;transform:rotate(-14deg)}.art-caption{bottom:-9px;font-size:8px;right:0}.star-sticker{left:0;bottom:9px;width:90px;height:90px}.star-sticker span{font-size:14px}.art-doodle{left:0;top:288px;width:105px;height:72px}.filetags{bottom:11px;right:0}.filetags span{font-size:10px}
+ .hero-art{height:419px;max-width:410px;width:100%;margin:auto}.new-paper{width:238px;right:65px;top:66px;min-height:320px;padding:20px 22px}.back-paper{left:10px;top:38px;width:191px;height:270px;padding:24px}.art-note{right:80px;top:0;width:130px;font-size:12px;padding:10px 13px;transform:rotate(2deg)}.art-orbit{inset:60px 65px 55px;transform:rotate(-14deg)}.art-caption{bottom:-9px;font-size:8px;right:10px}.star-sticker{left:0;bottom:9px;width:90px;height:90px}.star-sticker span{font-size:14px}.art-doodle{left:0;top:288px;width:105px;height:72px}.filetags{bottom:11px;right:24px}.filetags span{font-size:10px}
  .path-area{padding:26px 0 30px}.path-row{grid-template-columns:1fr;gap:14px}.sources{gap:11px;max-width:450px;margin:auto;width:100%}.source{padding:12px 15px;gap:9px}.source strong{font-size:12px}.source small{font-size:8px}.source svg{width:20px;height:26px}.path-row>.flow-arrow{font-size:25px;line-height:1;transform:rotate(90deg);height:25px}.path-row>.flow-arrow:last-of-type{display:block}.engine{justify-content:center;gap:18px;max-width:370px;margin:auto;width:100%}.engine .mark{width:33px;height:33px;font-size:25px}.engine-steps{gap:18px;flex:0}.engine-steps span{font-size:12px}.engine-steps b{font-size:9px}.flow-result{display:block;text-align:center;font-size:18px;transform:rotate(-2deg)}.engine-sub{font-size:10px;line-height:1.8;margin-top:20px}
- .pain-area{padding:47px 0 39px}.pain-top{display:block}.pain-heading{font-size:34px;letter-spacing:-1.3px;margin-top:17px;line-height:1.3}.pain-intro{font-size:11px;margin-top:17px;max-width:330px}
+ .pain-area{padding:47px 0 39px}.pain-top{display:block}.pain-heading{font-size:34px;letter-spacing:0;margin-top:17px;line-height:1.3}.pain-intro{font-size:11px;margin-top:17px;max-width:330px}
  .pain-tabs{flex-direction:column;margin-top:26px;gap:10px}.pain-tab{padding:12px 15px;gap:14px;align-items:center;border-radius:5px}.pain-tab strong{font-size:13px}.pain-tab small{font-size:9px;margin-top:1px}.pain-tab .num{font-size:12px;margin-top:0}
  .scene{grid-template-columns:1fr;margin-top:28px;gap:11px}.scene-next{font-size:30px;transform:rotate(90deg);line-height:1;height:28px}.scene-bar{padding:15px 18px;font-size:11px}.scene-bar b{font-size:9px}.scene-art{padding:23px 24px;min-height:0}.scene-paper{padding:18px 21px;max-width:350px}.scene-paper-title{font-size:12px}.scene-line{font-size:11px;margin-top:8px}.scene-caption{font-size:10px;margin-top:17px}.scene-result{min-height:0;padding:15px 18px 18px}.scene-result strong{font-size:14px}.scene-result p{font-size:10px;margin-top:5px}.highlighted{font-size:10px;padding:9px 10px}.scene-proof span{font-size:8px}.scene-note{font-size:9px;line-height:1.8;margin-top:20px}.jd-strip{font-size:9px;margin-bottom:13px}.jd-strip span{font-size:8px}.focused{font-size:11px}.layout-sketch{min-height:174px;gap:17px}.sketch-page{width:111px;height:170px}.good-page{width:154px;height:182px;padding:14px 16px}.layout-signed{font-size:8px}
- .purchase{padding:45px 0 49px}.buygrid{grid-template-columns:1fr;gap:38px}.purchase h2{font-size:37px;letter-spacing:-1.4px;line-height:1.3;margin-top:18px}.purchase p{font-size:12px;margin-top:18px}.get-list{margin-top:18px;gap:8px}.get-list span{font-size:9px}
+ .purchase{padding:45px 0 49px}.buygrid{grid-template-columns:1fr;gap:38px}.purchase h2{font-size:37px;letter-spacing:0;line-height:1.3;margin-top:18px}.purchase p{font-size:12px;margin-top:18px}.get-list{margin-top:18px;gap:8px}.get-list span{font-size:9px}
  .buybox{margin:0 5px;padding:25px 23px;box-shadow:6px 6px 0 var(--ink);transform:rotate(1.5deg)}.buytop .brand{font-size:16px}.buytop{font-size:9px}.price{font-size:35px;margin-top:23px}.price small{font-size:10px}.buybox .button{font-size:12px;min-height:50px;margin-top:22px;gap:14px}.buybottom{gap:10px;margin-top:20px;padding-top:16px}.buybottom .linkbutton{font-size:10px}.buybox .terms{font-size:9px}
  .detailsarea{display:block;padding-top:34px;padding-bottom:36px}.details-label{font-size:25px;margin-bottom:23px}.details-label small{font-size:9px;margin-top:5px}.detailsarea summary{font-size:11px;padding:16px 0}.detailsarea details p{font-size:11px}.footerrow{flex-wrap:wrap;gap:12px}.footer .brand{font-size:13px}.footer p{font-size:10px}.footer .linkbutton{font-size:10px}.footer{padding:22px 0}
  .modalbody{padding:24px}.modalbody h2{font-size:23px}.modalbody p{font-size:11px}.summarybox{padding:14px;gap:10px}.summarybox small{font-size:9px}
 }
 @media(max-width:370px){
- .wrap{width:calc(100% - 32px)}.nav .brand{font-size:13px}.nav .mark{width:28px;height:28px}.nav .button{font-size:10px;padding:8px 11px}.hero h1{font-size:46px;letter-spacing:-2.2px}.hero-actions{gap:15px}.hero-actions .button{font-size:12px;padding:13px 17px;gap:15px}.text-cta{font-size:10px}.hero-art{height:394px}.new-paper{width:209px;padding:19px;right:15px;top:65px;min-height:305px}.new-paper .paper-title{font-size:21px}.new-paper h3{font-size:9px;margin-top:12px}.new-paper .paper-row{font-size:8px}.new-paper p{font-size:7.5px}.paper-role{font-size:8px}.paper-info{font-size:7px}.back-paper{width:171px;height:243px;left:12px;padding:20px}.art-note{font-size:12px;padding:10px 14px;right:0}.star-sticker{left:5px;width:94px;height:94px}.star-sticker span{font-size:15px}.art-doodle{top:267px;width:95px}.filetags{gap:4px;bottom:3px}.filetags span{font-size:9px;padding:5px 8px}.source{padding:12px 10px;gap:7px}.source strong{font-size:11px}.source small{font-size:7px}.engine{gap:12px}.engine-steps{gap:14px}.engine-steps span{font-size:11px}.pain-heading{font-size:29px}.scene-art{padding:22px 18px}.scene-paper{padding:17px}.scene-line{font-size:10px}.scene-result strong{font-size:13px}.scene-bar{padding:14px 15px;font-size:10px}.scene-bar b{font-size:8px}.purchase h2{font-size:33px}.buybox{padding:23px 19px}.buytop .brand{font-size:14px}.buytop{font-size:8px}.get-list{gap:6px}.get-list span{font-size:8px;padding:5px 7px}.footer p{font-size:9px}
+ .wrap{width:calc(100% - 32px)}.nav .brand{font-size:13px}.nav .mark{width:28px;height:28px}.hero h1{font-size:43px;letter-spacing:0}.hero-actions{gap:15px}.hero-actions .button{font-size:12px;padding:13px 17px;gap:15px}.text-cta{font-size:10px}.hero-art{height:394px}.new-paper{width:209px;padding:19px;right:55px;top:65px;min-height:305px}.new-paper .paper-title{font-size:21px}.new-paper h3{font-size:9px;margin-top:12px}.new-paper .paper-row{font-size:8px}.new-paper p{font-size:7.5px}.paper-role{font-size:8px}.paper-info{font-size:7px}.back-paper{width:171px;height:243px;left:12px;padding:20px}.art-note{width:118px;font-size:11px;padding:9px 11px;right:70px}.star-sticker{left:5px;width:94px;height:94px}.star-sticker span{font-size:15px}.art-doodle{top:267px;width:95px}.filetags{gap:4px;right:18px;bottom:3px}.filetags span{font-size:9px;padding:5px 8px}.source{padding:12px 10px;gap:7px}.source strong{font-size:11px}.source small{font-size:7px}.engine{gap:12px}.engine-steps{gap:14px}.engine-steps span{font-size:11px}.pain-heading{font-size:29px}.scene-art{padding:22px 18px}.scene-paper{padding:17px}.scene-line{font-size:10px}.scene-result strong{font-size:13px}.scene-bar{padding:14px 15px;font-size:10px}.scene-bar b{font-size:8px}.purchase h2{font-size:33px}.buybox{padding:23px 19px}.buytop .brand{font-size:14px}.buytop{font-size:8px}.get-list{gap:6px}.get-list span{font-size:8px;padding:5px 7px}.footer p{font-size:9px}.payment-actions{grid-template-columns:1fr}.payment-state{text-align:left}.qr-frame{width:min(205px,100%)}
 }
 @media(prefers-reduced-motion:reduce){
  html{scroll-behavior:auto}
@@ -299,7 +319,7 @@ dialog::backdrop{background:#15160fa6;backdrop-filter:blur(5px)}
  font-family:var(--headline);
  font-weight:400;
  font-synthesis:none;
- letter-spacing:-.02em;
+ letter-spacing:0;
 }
 .art-note,.star-sticker span{
  font-family:var(--headline);
@@ -401,7 +421,7 @@ dialog::backdrop{background:#15160fa6;backdrop-filter:blur(5px)}
 <header class="wrap nav">
 <a class="brand" href="#" aria-label="AI PM Resume 首页"><i class="mark" aria-hidden="true">r</i>AI PM Resume</a>
 <nav class="navlinks" aria-label="主导航"><a href="#value">你的简历，卡在哪？</a><a href="#diagram">怎么重新写</a><a href="#purchase">获取 Skill</a></nav>
-<a class="button dark" href="#purchase">获取 Skill <span class="arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="solid" d="M5 5h14v14h-3v-8.9L7.1 19 5 16.9 13.9 8H5Z"/></svg></span></a>
+<a class="button dark" href="#purchase">¥9.9 获取 <span class="arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="solid" d="M5 5h14v14h-3v-8.9L7.1 19 5 16.9 13.9 8H5Z"/></svg></span></a>
 </header>
 <section class="hero wrap">
 <div class="hero-copy">
@@ -476,7 +496,7 @@ dialog::backdrop{background:#15160fa6;backdrop-filter:blur(5px)}
 </section>
 <section class="purchase" id="purchase"><div class="wrap buygrid">
 <div><div class="eyebrow">MAKE IT YOURS / 把完整流程带走</div><h2 class="heading">下一份 AI 简历，<br>写出你的<br><span class="under">产品判断。</span></h2><p>把事实核对、AI 岗位分析、证据写作和真实排版确认，<br>装进你正在使用的 AI Agent。</p><div class="get-list"><span><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="solid" d="m3.8 12 2.4-2.4 3.3 3.3L17.8 4.6l2.4 2.4L9.5 17.7Z"/></svg>事实核对</span><span><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="solid" d="m3.8 12 2.4-2.4 3.3 3.3L17.8 4.6l2.4 2.4L9.5 17.7Z"/></svg>AI 岗位定制</span><span><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="solid" d="m3.8 12 2.4-2.4 3.3 3.3L17.8 4.6l2.4 2.4L9.5 17.7Z"/></svg>18 款模板与文件交付</span></div></div>
-<article class="buybox"><div class="buytop"><span class="brand"><i class="mark" aria-hidden="true">r</i>AI PM Resume</span><span>完整 Skill 包</span></div><div class="price">价格待定<small>完整 Skill 包 · 开售前公布</small></div><button class="button dark" data-open="checkout">获取 Skill · 购买并下载 <span class="arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="solid" d="M5 5h14v14h-3v-8.9L7.1 19 5 16.9 13.9 8H5Z"/></svg></span></button><p class="terms">微信 / 支付宝流程预览 · 当前不收款</p><div class="buybottom"><button class="linkbutton" data-guide>下载使用说明 <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3v11m-4-4 4 4 4-4M5 16v4h14v-4"/></svg></button><button class="linkbutton" data-open="claim">已购买？领取下载 <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="solid" d="M3 10.5h11.6l-4-4 2.1-2.1L20.3 12l-7.6 7.6-2.1-2.1 4-4H3Z"/></svg></button></div></article>
+<article class="buybox"><div class="buytop"><span class="brand"><i class="mark" aria-hidden="true">r</i>AI PM Resume</span><span>完整 Skill 包</span></div><div class="price">¥9.9<small>一次购买 · 完整 Skill 包</small></div><div class="payment-actions" role="group" aria-label="选择支付方式"><button class="payment-option wechat" data-pay-open="wechat"><span class="pay-symbol" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 10.5c0-3.3 3.2-6 7.2-6s7.2 2.7 7.2 6-3.2 6-7.2 6c-.9 0-1.8-.1-2.6-.4L5 18l1.1-3A5.6 5.6 0 0 1 4 10.5Z"/><path d="M12.6 13.2c.7 2.4 3.2 4.1 6.1 4.1.6 0 1.2-.1 1.7-.2l2.1 1-.7-1.8a4.2 4.2 0 0 0 1.2-2.9c0-2.7-2.6-4.9-5.8-4.9"/></svg></span><span><strong>微信支付</strong><small>查看收款码</small></span></button><button class="payment-option alipay" data-pay-open="alipay"><span class="pay-symbol" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 5h12M9 9h8c-1 4.6-4.6 8-10 9"/><path d="M8 13c3.4 1.6 6.8 3.4 10.5 5.8M12 3v6"/></svg></span><span><strong>支付宝</strong><small>查看收款码</small></span></button></div><p class="terms">点击后打开对应收款码 · 当前收款码待上传</p><div class="buybottom"><button class="linkbutton" data-guide>下载使用说明 <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3v11m-4-4 4 4 4-4M5 16v4h14v-4"/></svg></button><span class="payment-state">收款码上线时同步补充领取方式</span></div></article>
 </div></section>
 <section class="detailsarea wrap" aria-label="使用与购买说明"><div class="details-label">还有几个问题？<small>BEFORE YOU START <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="solid" d="M10.5 3h3v11.6l4-4 2.1 2.1-7.6 7.6-7.6-7.6 2.1-2.1 4 4Z"/></svg></small></div><div class="faq-list">
 <details><summary><span>如何开始使用？</span><svg class="icon faq-toggle" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path class="vertical" d="M12 5v14"/></svg></summary><p>下载完整 Skill，按你的 Agent 的技能目录或导入方式接入。在 Agent 中上传旧简历，或选择从零整理教育和经历；修改并核对资料后，由它完成定位与正文，先确认内容和模板效果，再确认全部页图。制作发生在你的 Agent 中，这个介绍页不收集简历资料。</p></details>
@@ -484,12 +504,13 @@ dialog::backdrop{background:#15160fa6;backdrop-filter:blur(5px)}
 <details><summary><span>购买和使用前，还需要了解什么？</span><svg class="icon faq-toggle" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path class="vertical" d="M12 5v14"/></svg></summary><p>Skill 售价为 9.9 元，帮助整理和呈现真实经历，不保证面试或录用，也不自动投递。支持微信与支付宝扫码；当前收款码待上传，暂不产生付款。收款码上线时会同步补充付款后的领取方式；免费使用说明不包含完整 Skill 包。</p></details>
 </div></section>
 </main>
-<footer class="footer"><div class="wrap footerrow"><a class="brand" href="#"><i class="mark" aria-hidden="true">r</i>AI PM Resume</a><p>让真实贡献，更容易被看见。</p><button class="linkbutton" data-open="claim">已购下载</button></div></footer>
-<dialog id="commerce" aria-label="购买流程预览"><div class="modalhead"><span>AI PM Resume</span><button class="close" id="close" aria-label="关闭弹窗"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 6 12 12M18 6 6 18"/></svg></button></div><div class="modalbody">
-<div data-view="checkout"><h2>获取完整简历 Skill</h2><p>旧简历重新写，没有简历从零写。</p><div class="summarybox"><i class="mark" aria-hidden="true">r</i><div><strong>AI PM Resume</strong><small>资料整理 <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="solid" d="M3 10.5h11.6l-4-4 2.1-2.1L20.3 12l-7.6 7.6-2.1-2.1 4-4H3Z"/></svg> 岗位写作 <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="solid" d="M3 10.5h11.6l-4-4 2.1-2.1L20.3 12l-7.6 7.6-2.1-2.1 4-4H3Z"/></svg> 排版与交付</small></div></div><div class="methods" role="group" aria-label="选择支付方式"><button data-pay="微信支付" aria-pressed="true">微信支付</button><button data-pay="支付宝" aria-pressed="false">支付宝</button></div><button class="button dark" id="previewPay">预览支付步骤 <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="solid" d="M3 10.5h11.6l-4-4 2.1-2.1L20.3 12l-7.6 7.6-2.1-2.1 4-4H3Z"/></svg></button><p class="modal-note">价格待定，支付服务未接入。本页不会创建订单或扣款。</p></div>
-<div data-view="waiting" hidden><div class="center"><div class="statusmark" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3 2"/></svg></div><h2>等待支付 · 演示</h2><p id="methodText">微信支付 / 流程预览</p></div><div class="modalrow"><button class="button light" id="back">返回选择</button><button class="button dark" id="demoPaid">演示支付完成</button></div><p class="modal-note">正式接入后，支付结果由服务端核验。</p></div>
-<div data-view="delivery" hidden><div class="center"><div class="statusmark" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="solid" d="m3.8 12 2.4-2.4 3.3 3.3L17.8 4.6l2.4 2.4L9.5 17.7Z"/></svg></div><h2>领取文件 · 演示</h2><p>当前演示不代表已购买。</p></div><div class="downloadrow"><div>完整 Skill 包<small>写作流程、模板与配套资源</small></div><button id="pending">待接入</button></div><div class="downloadrow"><div>使用说明<small>免费预览，不含完整包</small></div><button data-guide>下载 <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3v11m-4-4 4 4 4-4M5 16v4h14v-4"/></svg></button></div><button class="button dark" data-close>完成预览</button></div>
-<div data-view="claim" hidden><h2>领取已购 Skill</h2><p>正式开售后，在这里核验订单并领取文件。</p><div class="summarybox"><i class="mark" aria-hidden="true">r</i><div><strong>AI PM Resume</strong><small>下载入口已预留，订单服务待接入。</small></div></div><button class="button dark" data-guide>先下载使用说明</button><p class="modal-note">当前不收集邮箱或订单信息，也不发放付费包。</p></div>
+<footer class="footer"><div class="wrap footerrow"><a class="brand" href="#"><i class="mark" aria-hidden="true">r</i>AI PM Resume</a><p>把 AI 产品判断，写成能被追问的证据。</p><button class="linkbutton" data-pay-open="wechat">¥9.9 立即获取</button></div></footer>
+<dialog id="commerce" aria-label="微信收款码" data-wechat-src="" data-alipay-src=""><div class="modalhead"><span>AI PM Resume · ¥9.9</span><button class="close" id="close" aria-label="关闭支付弹窗"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 6 12 12M18 6 6 18"/></svg></button></div><div class="modalbody">
+<div class="payment-amount"><span>完整 AI 产品经理简历 Skill</span><strong>¥9.9</strong></div>
+<h2 id="paymentTitle">微信扫码支付</h2><p id="paymentLead">使用微信扫描下方收款码。</p>
+<div class="qr-panel"><div class="qr-frame"><img class="qr-image" id="qrImage" alt="" hidden><div class="qr-placeholder" id="qrPlaceholder"><svg viewBox="0 0 64 64" aria-hidden="true"><rect x="8" y="8" width="18" height="18" rx="2"/><rect x="38" y="8" width="18" height="18" rx="2"/><rect x="8" y="38" width="18" height="18" rx="2"/><path d="M38 38h7v7h11v11H45v-6h-7zM14 14h6v6h-6zM44 14h6v6h-6zM14 44h6v6h-6z"/></svg><strong id="qrPlaceholderTitle">微信收款码</strong><small>待上传<br>当前页面不会发起付款</small></div></div></div>
+<div class="payment-switch" role="group" aria-label="切换支付方式"><button data-method="wechat" aria-pressed="true">微信支付</button><button data-method="alipay" aria-pressed="false">支付宝</button></div>
+<p class="modal-note"><strong id="paymentStatus">当前收款码待上传，本页暂不收款。</strong><br>收款码上线后，请在付款前核对金额为 9.9 元和收款方信息。</p>
 </div></dialog>
 <div id="toast" class="toast" role="status" hidden></div>
 <script>
@@ -510,21 +531,40 @@ $$('[data-source]').forEach(button=>button.addEventListener('click',()=>{
 }));
 let timer;
 function notify(text){clearTimeout(timer);$('#toast').textContent=text;$('#toast').hidden=false;timer=setTimeout(()=>{$('#toast').hidden=true},3500)}
-const modal=$('#commerce');let trigger=null,method='微信支付';
-function view(name){$$('[data-view]').forEach(v=>v.hidden=v.dataset.view!==name);$('#methodText').textContent=method+' / 流程预览';modal.setAttribute('aria-label',({checkout:'购买流程预览',waiting:'等待支付演示',delivery:'交付演示',claim:'已购领取'})[name])}
-$$('[data-open]').forEach(b=>b.addEventListener('click',()=>{trigger=b;view(b.dataset.open);modal.showModal();document.body.classList.add('locked')}));
-$('#close').addEventListener('click',()=>modal.close());$$('[data-close]').forEach(b=>b.addEventListener('click',()=>modal.close()));
+const modal=$('#commerce');let trigger=null,paymentMethod='wechat';
+const paymentConfig={
+ wechat:{name:'微信',title:'微信扫码支付',sourceKey:'wechatSrc'},
+ alipay:{name:'支付宝',title:'支付宝扫码支付',sourceKey:'alipaySrc'}
+};
+function renderPayment(key){
+ const config=paymentConfig[key]||paymentConfig.wechat;
+ paymentMethod=Object.hasOwn(paymentConfig,key)?key:'wechat';
+ $('#paymentTitle').textContent=config.title;
+ $('#paymentLead').textContent=`使用${config.name}扫描下方收款码，支付 9.9 元。`;
+ $('#qrPlaceholderTitle').textContent=`${config.name}收款码`;
+ modal.setAttribute('aria-label',`${config.name}收款码`);
+ $$('[data-method]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.method===paymentMethod)));
+ const source=(modal.dataset[config.sourceKey]||'').trim(),image=$('#qrImage'),placeholder=$('#qrPlaceholder');
+ if(source){
+  image.src=source;image.alt=`${config.name}收款码，支付 9.9 元`;image.hidden=false;placeholder.hidden=true;
+  $('#paymentStatus').textContent=`请使用${config.name}扫码支付 9.9 元。`;
+ }else{
+  image.removeAttribute('src');image.alt='';image.hidden=true;placeholder.hidden=false;
+  $('#paymentStatus').textContent='当前收款码待上传，本页暂不收款。';
+ }
+}
+$$('[data-pay-open]').forEach(button=>button.addEventListener('click',()=>{trigger=button;renderPayment(button.dataset.payOpen);modal.showModal();document.body.classList.add('locked')}));
+$$('[data-method]').forEach(button=>button.addEventListener('click',()=>renderPayment(button.dataset.method)));
+$('#close').addEventListener('click',()=>modal.close());
 modal.addEventListener('close',()=>{document.body.classList.remove('locked');if(trigger)trigger.focus()});
 modal.addEventListener('click',event=>{if(event.target!==modal)return;const r=modal.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)modal.close()});
-$$('[data-pay]').forEach(b=>b.addEventListener('click',()=>{method=b.dataset.pay;$$('[data-pay]').forEach(p=>p.setAttribute('aria-pressed',String(p===b)))}));
-$('#previewPay').addEventListener('click',()=>{view('waiting');$('#back').focus()});$('#back').addEventListener('click',()=>{view('checkout');$('#previewPay').focus()});$('#demoPaid').addEventListener('click',()=>{view('delivery');$('#pending').focus()});$('#pending').addEventListener('click',()=>notify('付费包待接入，当前演示没有产生购买权益。'));
 const guide=`AI PM Resume — 使用说明
 
 有旧简历，重新写；没有，从零写。
 
 你提供真实资料，Skill 帮你：
 1. 找准重点：核对经历，确定本次目标，决定哪些前置、展开或压缩。
-2. 写清贡献：写出问题、个人动作、判断与验证，不补造经历和数字。
+2. 写清 AI 产品判断：写出任务边界、个人动作、方案取舍、评测与验证，不补造经历和数字。
 3. 确认排版：先核对内容与当前正文的真实模板效果，再确认全部页图。
 4. 拿到文件：定稿后交付同版可编辑 Word、带文字层的 PDF 和全部 PNG。
 
@@ -541,8 +581,9 @@ const guide=`AI PM Resume — 使用说明
 模型账户和运行环境另行准备。
 
 本文件是免费说明，不包含完整技能包。
-商品页的支付和下载领取为设计预览，当前不创建订单或扣款。
-价格、授权、更新及售后规则在开售前公布，不保证面试或录用。
+Skill 售价为 9.9 元，支持微信与支付宝扫码。
+当前收款码尚未上传，页面暂不收款；收款码上线时会同步补充付款后的领取方式。
+Skill 不保证面试或录用。
 `;
 $$('[data-guide]').forEach(b=>b.addEventListener('click',()=>{
  const blob=new Blob([guide],{type:'text/plain;charset=utf-8'}),url=URL.createObjectURL.call(URL,blob),link=document.createElement('a');
