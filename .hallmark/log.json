@@ -1,5 +1,13 @@
 [
   {
+    "date": "2026-11-21",
+    "macrostructure": "Narrative Workflow",
+    "theme": "Custom warm graphite + signal red",
+    "theme_axes": "light / distinctive-sans / warm",
+    "enrichment": "real product screenshots plus narrated operation states",
+    "brief": "Apple-inspired product story that makes the AI PM resume workflow immediately understandable"
+  },
+  {
     "date": "2026-11-20",
     "macrostructure": "Workbench",
     "theme": "Cobalt-derived",

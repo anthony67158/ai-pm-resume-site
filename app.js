@@ -9,6 +9,24 @@
   setNavState();
   window.addEventListener("scroll", setNavState, { passive: true });
 
+  const revealTargets = $$(
+    ".quick-head, .quick-flow, .workflow-accordion, .case-compare, .case-figure, .template-card, .price-panel"
+  );
+  if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    revealTargets.forEach((target) => target.classList.add("reveal"));
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-visible");
+          revealObserver.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.12 }
+    );
+    revealTargets.forEach((target) => revealObserver.observe(target));
+  }
+
   const workflowSteps = $$(".workflow-accordion details");
   const demoScripts = [
     ["把 Skill 文件夹放进技能目录", "在 Agent 输入一句启动指令", "看到“Skill 已加载”就可以开始"],
@@ -69,6 +87,8 @@
   };
 
   workflowSteps.forEach((step) => {
+    const caption = $("[data-demo-caption]", step);
+    caption?.setAttribute("aria-live", "polite");
     step.addEventListener("toggle", () => {
       const demo = $("[data-step-demo]", step);
       if (!step.open) {
