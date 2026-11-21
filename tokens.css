@@ -71,5 +71,5 @@
   --z-sticky: 200;
   --z-sticky-nav: 220;
   --z-modal: 400;
-  --banner-height: 4rem;
+  --banner-height: calc(4rem + env(safe-area-inset-top, 0px));
 }

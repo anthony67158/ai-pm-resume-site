@@ -30,7 +30,7 @@
   const demoScripts = [
     ["把 Skill 文件夹放进技能目录", "在 Agent 输入一句启动指令", "看到“Skill 已加载”就可以开始"],
     ["点击上传旧简历；没有简历也可以从零填写", "Skill 自动提取教育、工作和项目经历", "检查提取结果，再确认进入改写"],
-    ["先看改写前后，确认没有编造事实", "点击“确认内容真实”", "再选模板，右侧立即显示真实排版"],
+    ["先看改写前后，确认没有编造事实", "核对无误后，确认内容真实", "再选模板，查看真实排版"],
     ["先查看整页预览，确认没有分页或排版问题", "等待内容、分页和文字层检查通过", "点击定稿，下载 Word、PDF 和全部 PNG"]
   ];
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -40,12 +40,17 @@
   const demos = $$("[data-step-demo]");
   const markers = $$(".story-progress li");
   const clamp = (value) => Math.max(0, Math.min(1, value));
+  const ease = (value) => {
+    const t = clamp(value);
+    return t * t * (3 - 2 * t);
+  };
 
   const renderDemo = (demo, index, progress) => {
     // Every visual value comes from scroll position; no playback clock.
     const phase = Math.min(2, Math.floor(progress * 3));
     for (let part = 0; part < 3; part++) {
-      demo.style.setProperty(`--part-${part + 1}`, clamp(progress * 3 - part).toFixed(4));
+      // A short movement followed by a reading hold in each narrated phase.
+      demo.style.setProperty(`--part-${part + 1}`, ease((progress * 3 - part) / 0.64).toFixed(4));
     }
     if (demo.dataset.renderedPhase === String(phase)) return;
     demo.dataset.phase = String(phase);
@@ -60,28 +65,43 @@
 
   if (story && sticky && chapters.length) {
     let frame = 0;
-    let pinned = false;
+    let mode = "static";
     let storyStart = 0;
     let distance = 1;
+    let flowBounds = [];
+    const chapterNav = $(".story-progress");
+    const cue = $(".scroll-cue span");
 
     const updateStory = () => {
       frame = 0;
       const progress = clamp((window.scrollY - storyStart) / distance);
-      const chapterIndex = Math.min(chapters.length - 1, Math.floor(progress * chapters.length));
+      const position = progress * chapters.length;
+      let chapterIndex = Math.min(chapters.length - 1, Math.floor(position));
+      if (mode === "flow") {
+        chapterIndex = Math.max(0, flowBounds.findLastIndex((bounds) => window.scrollY >= bounds.heading - window.innerHeight * 0.35));
+      }
       chapters.forEach((chapter, index) => {
-        const active = !pinned || index === chapterIndex;
+        const active = mode === "static" || index === chapterIndex;
+        const enter = mode !== "cinematic" || index === 0 ? 1 : ease((position - index + 0.08) / 0.16);
+        const exit = mode !== "cinematic" || index === chapters.length - 1 ? 1 : 1 - ease((position - index - 0.92) / 0.16);
+        const visibility = enter * exit;
         chapter.classList.toggle("is-active", active);
-        chapter.inert = !active;
-        if (active) chapter.removeAttribute("aria-hidden");
+        chapter.classList.toggle("is-present", visibility > 0.001);
+        chapter.style.setProperty("--scene-opacity", visibility.toFixed(4));
+        chapter.style.setProperty("--scene-y", `${((1 - enter) * 32 - (1 - exit) * 24).toFixed(2)}px`);
+        chapter.style.setProperty("--scene-scale", (1 - (1 - enter) * 0.035 - (1 - exit) * 0.015).toFixed(4));
+        chapter.inert = mode === "cinematic" && !active;
+        if (!chapter.inert) chapter.removeAttribute("aria-hidden");
         else chapter.setAttribute("aria-hidden", "true");
-        const local = pinned ? clamp(progress * chapters.length - index) : 1;
+        const local = mode === "cinematic" ? clamp(position - index)
+          : mode === "flow" ? clamp((window.scrollY - flowBounds[index].start) / flowBounds[index].distance) : 1;
         renderDemo(demos[index], index, local);
-        markers[index].style.setProperty("--progress", pinned ? local : 1);
-        if (pinned && active) markers[index].setAttribute("aria-current", "step");
-        else markers[index].removeAttribute("aria-current");
+        markers[index].style.setProperty("--progress", local);
+        const button = $("[data-story-jump]", markers[index]);
+        if (mode !== "static" && active) button.setAttribute("aria-current", "step");
+        else button.removeAttribute("aria-current");
       });
-      const cue = $(".scroll-cue span");
-      cue.textContent = pinned
+      cue.textContent = mode !== "static"
         ? (progress > 0.96 ? "已经看完，继续滑动看改写案例" : "继续往下滑，演示随你推进")
         : "四步完整呈现，往下阅读即可";
     };
@@ -89,16 +109,41 @@
       if (!frame) frame = window.requestAnimationFrame(updateStory);
     };
     const measureStory = () => {
-      // Short windows and enlarged text get the complete readable document.
-      story.classList.add("is-enhanced");
-      story.classList.remove("is-static");
+      // Mobile pins only the illustration, leaving copy in the natural reading flow.
+      const mobile = window.matchMedia("(max-width: 48rem)").matches;
+      mode = reduceMotion.matches ? "static" : mobile ? "flow" : "cinematic";
+      story.dataset.mode = mode;
       const top = parseFloat(getComputedStyle(sticky).top) || 0;
-      pinned = !reduceMotion.matches && sticky.offsetHeight + top + 12 <= window.innerHeight;
-      story.classList.toggle("is-static", !pinned);
+      story.style.setProperty("--story-nav-height", `${chapterNav.offsetHeight}px`);
+      const demoTop = parseFloat(getComputedStyle(demos[0]).top) || 0;
+      const fits = mode === "cinematic"
+        ? sticky.offsetHeight + top + 8 <= window.innerHeight
+        : Math.max(...demos.map((demo) => demo.offsetHeight)) + demoTop + 8 <= window.innerHeight;
+      if (!fits) mode = "static";
+      story.dataset.mode = mode;
       storyStart = story.getBoundingClientRect().top + window.scrollY - top;
       distance = Math.max(1, story.offsetHeight - sticky.offsetHeight);
+      flowBounds = chapters.map((chapter, index) => {
+        const detail = $(".workflow-detail", chapter);
+        const heading = chapter.getBoundingClientRect().top + window.scrollY;
+        const detailTop = detail.getBoundingClientRect().top + window.scrollY;
+        const copy = $(".step-copy", detail);
+        const naturalDemoTop = detailTop + copy.offsetHeight + parseFloat(getComputedStyle(demos[index]).marginTop);
+        const start = naturalDemoTop - demoTop - window.innerHeight * 0.18;
+        const end = detailTop + detail.offsetHeight - demos[index].offsetHeight - demoTop - 24;
+        return { heading, start, distance: Math.max(1, end - start) };
+      });
       scheduleStory();
     };
+    $$("[data-story-jump]").forEach((button, index) => {
+      button.addEventListener("click", (event) => {
+        event.preventDefault();
+        const destination = mode === "cinematic"
+          ? storyStart + distance * ((index + 0.08) / chapters.length)
+          : flowBounds[index].heading - (parseFloat(getComputedStyle(chapterNav).top) || 64) - chapterNav.offsetHeight - 16;
+        window.scrollTo({ top: destination, behavior: reduceMotion.matches ? "instant" : "smooth" });
+      });
+    });
     window.addEventListener("scroll", scheduleStory, { passive: true });
     window.addEventListener("resize", measureStory);
     window.addEventListener("pageshow", measureStory);
@@ -115,7 +160,7 @@
       if (!source) return;
       button.classList.add("is-loading");
       try {
-        await navigator.clipboard.writeText(source.innerText.trim());
+        await navigator.clipboard.writeText(source.textContent.trim());
         button.dataset.state = "copied";
         button.classList.add("is-success");
         $(".copy-label", button).textContent = "已复制";
