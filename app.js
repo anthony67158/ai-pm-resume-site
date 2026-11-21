@@ -10,7 +10,7 @@
   window.addEventListener("scroll", setNavState, { passive: true });
 
   const revealTargets = $$(
-    ".quick-head, .quick-flow, .workflow-accordion, .case-compare, .case-figure, .template-card, .price-panel"
+    ".quick-head, .quick-flow, .case-compare, .case-figure, .template-card, .price-panel"
   );
   if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
     revealTargets.forEach((target) => target.classList.add("reveal"));
@@ -27,95 +27,86 @@
     revealTargets.forEach((target) => revealObserver.observe(target));
   }
 
-  const workflowSteps = $$(".workflow-accordion details");
   const demoScripts = [
     ["把 Skill 文件夹放进技能目录", "在 Agent 输入一句启动指令", "看到“Skill 已加载”就可以开始"],
     ["点击上传旧简历；没有简历也可以从零填写", "Skill 自动提取教育、工作和项目经历", "检查提取结果，再确认进入改写"],
     ["先看改写前后，确认没有编造事实", "点击“确认内容真实”", "再选模板，右侧立即显示真实排版"],
     ["先查看整页预览，确认没有分页或排版问题", "等待内容、分页和文字层检查通过", "点击定稿，下载 Word、PDF 和全部 PNG"]
   ];
-  const demoTimers = new WeakMap();
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const story = $(".story-track");
+  const sticky = $(".story-sticky");
+  const chapters = $$(".story-chapter");
+  const demos = $$("[data-step-demo]");
+  const markers = $$(".story-progress li");
+  const clamp = (value) => Math.max(0, Math.min(1, value));
 
-  const stopStepDemo = (demo) => {
-    if (!demo) return;
-    const timers = demoTimers.get(demo);
-    if (timers) {
-      window.clearInterval(timers.interval);
-      window.clearTimeout(timers.click);
+  const renderDemo = (demo, index, progress) => {
+    // Every visual value comes from scroll position; no playback clock.
+    const phase = Math.min(2, Math.floor(progress * 3));
+    for (let part = 0; part < 3; part++) {
+      demo.style.setProperty(`--part-${part + 1}`, clamp(progress * 3 - part).toFixed(4));
     }
-    demoTimers.delete(demo);
-    demo.classList.remove("is-playing", "is-clicking");
-  };
-
-  const renderDemoPhase = (demo, phase) => {
-    const index = $$("[data-step-demo]").indexOf(demo);
-    const script = demoScripts[index] || demoScripts[0];
-    const nextPhase = Math.max(0, Math.min(phase, script.length - 1));
-    demo.dataset.phase = String(nextPhase);
-    $("[data-demo-count]", demo).textContent = `${nextPhase + 1} / ${script.length}`;
-    $("[data-demo-caption]", demo).textContent = script[nextPhase];
+    if (demo.dataset.renderedPhase === String(phase)) return;
+    demo.dataset.phase = String(phase);
+    demo.dataset.renderedPhase = String(phase);
+    $("[data-demo-count]", demo).textContent = `${phase + 1} / 3`;
+    $("[data-demo-caption]", demo).textContent = demoScripts[index][phase];
     $$(".demo-timeline li", demo).forEach((item, itemIndex) => {
-      item.classList.toggle("is-active", itemIndex === nextPhase);
-      item.classList.toggle("is-done", itemIndex < nextPhase);
+      item.classList.toggle("is-active", itemIndex === phase);
+      item.classList.toggle("is-done", itemIndex < phase);
     });
-    demo.classList.remove("is-clicking");
-    const timers = demoTimers.get(demo) || {};
-    window.clearTimeout(timers.click);
-    if (!reduceMotion.matches) {
-      timers.click = window.setTimeout(() => demo.classList.add("is-clicking"), 650);
-    }
-    demoTimers.set(demo, timers);
   };
 
-  const playStepDemo = (demo) => {
-    if (!demo) return;
-    stopStepDemo(demo);
-    demo.classList.add("is-playing");
-    if (reduceMotion.matches) {
-      renderDemoPhase(demo, 2);
-      return;
-    }
-    let phase = 0;
-    renderDemoPhase(demo, phase);
-    const timers = demoTimers.get(demo) || {};
-    timers.interval = window.setInterval(() => {
-      phase = (phase + 1) % 3;
-      renderDemoPhase(demo, phase);
-    }, 2600);
-    demoTimers.set(demo, timers);
-  };
+  if (story && sticky && chapters.length) {
+    let frame = 0;
+    let pinned = false;
+    let storyStart = 0;
+    let distance = 1;
 
-  workflowSteps.forEach((step) => {
-    const caption = $("[data-demo-caption]", step);
-    caption?.setAttribute("aria-live", "polite");
-    step.addEventListener("toggle", () => {
-      const demo = $("[data-step-demo]", step);
-      if (!step.open) {
-        stopStepDemo(demo);
-        return;
-      }
-      workflowSteps.forEach((other) => {
-        if (other !== step) other.open = false;
+    const updateStory = () => {
+      frame = 0;
+      const progress = clamp((window.scrollY - storyStart) / distance);
+      const chapterIndex = Math.min(chapters.length - 1, Math.floor(progress * chapters.length));
+      chapters.forEach((chapter, index) => {
+        const active = !pinned || index === chapterIndex;
+        chapter.classList.toggle("is-active", active);
+        chapter.inert = !active;
+        if (active) chapter.removeAttribute("aria-hidden");
+        else chapter.setAttribute("aria-hidden", "true");
+        const local = pinned ? clamp(progress * chapters.length - index) : 1;
+        renderDemo(demos[index], index, local);
+        markers[index].style.setProperty("--progress", pinned ? local : 1);
+        if (pinned && active) markers[index].setAttribute("aria-current", "step");
+        else markers[index].removeAttribute("aria-current");
       });
-      playStepDemo(demo);
-    });
-  });
-  $$("[data-demo-replay]").forEach((button) => {
-    button.addEventListener("click", () => playStepDemo(button.closest("[data-step-demo]")));
-  });
-  $$(".demo-confirm").forEach((button) => {
-    button.addEventListener("click", () => {
-      const demo = button.closest("[data-step-demo]");
-      const next = Math.min(Number(demo.dataset.phase || 0) + 1, 2);
-      renderDemoPhase(demo, next);
-    });
-  });
-  document.addEventListener("visibilitychange", () => {
-    const openDemo = $(".workflow-accordion details[open] [data-step-demo]");
-    if (document.hidden) stopStepDemo(openDemo);
-    else if (openDemo) playStepDemo(openDemo);
-  });
+      const cue = $(".scroll-cue span");
+      cue.textContent = pinned
+        ? (progress > 0.96 ? "已经看完，继续滑动看改写案例" : "继续往下滑，演示随你推进")
+        : "四步完整呈现，往下阅读即可";
+    };
+    const scheduleStory = () => {
+      if (!frame) frame = window.requestAnimationFrame(updateStory);
+    };
+    const measureStory = () => {
+      // Short windows and enlarged text get the complete readable document.
+      story.classList.add("is-enhanced");
+      story.classList.remove("is-static");
+      const top = parseFloat(getComputedStyle(sticky).top) || 0;
+      pinned = !reduceMotion.matches && sticky.offsetHeight + top + 12 <= window.innerHeight;
+      story.classList.toggle("is-static", !pinned);
+      storyStart = story.getBoundingClientRect().top + window.scrollY - top;
+      distance = Math.max(1, story.offsetHeight - sticky.offsetHeight);
+      scheduleStory();
+    };
+    window.addEventListener("scroll", scheduleStory, { passive: true });
+    window.addEventListener("resize", measureStory);
+    window.addEventListener("pageshow", measureStory);
+    reduceMotion.addEventListener("change", measureStory);
+    document.fonts.ready.then(measureStory);
+    window.addEventListener("load", measureStory, { once: true });
+    measureStory();
+  }
 
   const copyButtons = $$("[data-copy]");
   copyButtons.forEach((button) => {

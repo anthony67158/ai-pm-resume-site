@@ -10,8 +10,8 @@
   <meta property="og:title" content="AI PM Resume — 从资料到可投递简历的完整流程">
   <meta property="og:description" content="看清怎么用、改写前后和 18 款真实模板，再决定是否购买。">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%232b55ef'/%3E%3Cpath d='M23 45 29 18h10l-2 8c3-3 6-5 10-5l-3 10c-5 0-9 3-11 14Z' fill='white'/%3E%3C/svg%3E">
-  <link rel="stylesheet" href="tokens.css?v=4.0.0">
-  <link rel="stylesheet" href="styles.css?v=4.0.0">
+  <link rel="stylesheet" href="tokens.css?v=5.0.0">
+  <link rel="stylesheet" href="styles.css?v=5.0.0">
   <title>AI PM Resume — 看清怎么用、案例和模板</title>
 </head>
 <body>
@@ -43,7 +43,7 @@
           <p class="hero-claim">把真实经历，变成一份真正能投递的简历。</p>
           <p class="hero-lede">安装到你的 Agent。提供旧简历和目标岗位，它会完成事实核对、内容重写、模板排版与最终交付。</p>
           <div class="hero-actions">
-            <a class="btn btn--primary" href="#quick">
+            <a class="btn btn--primary" href="#how">
               看它如何工作
               <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
             </a>
@@ -88,7 +88,7 @@
           <div class="quick-links">
             <a href="#case">看改写前后</a>
             <a href="#templates">看模板长什么样</a>
-            <a href="#how">展开完整流程</a>
+            <a href="#how">滑动看完整流程</a>
           </div>
         </div>
       </div>
@@ -98,24 +98,36 @@
       <div class="container">
         <header class="section-head">
           <p class="meta-label">完整使用流程</p>
-          <h2>四步，完成可投递简历。</h2>
-          <p>点击任一步。页面会直接演示你要点哪里、系统做什么、下一步是什么。</p>
+          <h2>往下滑。看简历一步步成形。</h2>
+          <p>从安装到交付，跟着滚动看一遍。实际制作在你的 Agent 中完成。</p>
         </header>
-
-        <div class="workflow-accordion">
-          <details name="workflow">
-            <summary><span class="step-number">01</span><strong>安装 Skill，输入一句话启动</strong><small>约 1 分钟</small><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5v14"/></svg></summary>
+      </div>
+      <div class="story-track">
+        <div class="story-sticky container">
+          <div class="story-topline">
+            <p class="meta-label">一份简历的诞生</p>
+            <a href="#case">直接看改写结果 <span aria-hidden="true">↗</span></a>
+          </div>
+          <ol class="story-progress" aria-label="使用流程进度">
+            <li><span>01</span> 安装启动<i></i></li>
+            <li><span>02</span> 提供资料<i></i></li>
+            <li><span>03</span> 改写排版<i></i></li>
+            <li><span>04</span> 定稿下载<i></i></li>
+          </ol>
+          <div class="story-panels">
+          <article class="story-chapter" aria-labelledby="chapter-install">
             <div class="workflow-detail">
               <div class="step-copy">
-                <p>下载完整 Skill 文件夹，放到宿主支持的技能目录。以 TRAE 项目级安装为例：</p>
+                <span class="chapter-label">01 / 安装启动</span>
+                <h3 id="chapter-install">放进 Agent。<br>一句话，开始。</h3>
+                <p>下载完整 Skill 文件夹，放入技能目录，再在 Agent 对话框输入启动指令。</p>
                 <ul class="step-detail">
-                  <li>保留 SKILL.md、脚本、模板和参考资料</li>
-                  <li>首次使用先运行环境检查</li>
-                  <li>页面不收集简历，所有制作发生在你的 Agent 中</li>
+                  <li>图中以 TRAE 项目级安装为例</li>
+                  <li>保留完整文件夹，首次使用先检查环境</li>
                 </ul>
               </div>
-              <div class="operation-demo demo-install" data-step-demo aria-label="安装 Skill 操作动画">
-                <div class="operation-bar"><span><i></i>安装操作演示</span><button type="button" data-demo-replay aria-label="重新播放安装动画"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 5.7M20 4v7h-7"/></svg></button></div>
+              <div class="operation-demo demo-install" data-step-demo data-phase="2" aria-label="安装 Skill 操作演示">
+                <div class="operation-bar"><span><i></i>你的 Agent</span><small>操作示意</small></div>
                 <div class="demo-narration"><span data-demo-count>1 / 3</span><strong data-demo-caption>把 Skill 文件夹放进技能目录</strong></div>
                 <div class="install-stage">
                   <div class="file-tree">
@@ -129,94 +141,92 @@
                     <p class="terminal-command">使用 ai-pm-resume 帮我生成 AI 产品经理简历</p>
                     <p class="terminal-ready"><b>通过</b> Skill 已加载，可以开始收集资料</p>
                   </div>
-                  <span class="demo-pointer install-pointer" aria-hidden="true"></span>
                 </div>
                 <div class="operation-foot"><ol class="demo-timeline"><li>放入文件夹</li><li>输入指令</li><li>加载成功</li></ol><button class="copy-btn" type="button" data-copy="installCode"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="11" height="11" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg><span class="copy-label">复制指令</span></button></div>
                 <pre id="installCode" hidden>使用 ai-pm-resume 帮我生成 AI 产品经理简历。</pre>
               </div>
             </div>
-          </details>
+          </article>
 
-          <details name="workflow">
-            <summary><span class="step-number">02</span><strong>上传旧简历，核对提取结果</strong><small>没有简历也能开始</small><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5v14"/></svg></summary>
+          <article class="story-chapter" aria-labelledby="chapter-intake">
             <div class="workflow-detail">
               <div class="step-copy">
-                <p>有旧简历就直接上传；没有就从教育、工作、实习和项目开始。目标公司、具体职位和 JD 分开填写。</p>
+                <span class="chapter-label">02 / 提供资料</span>
+                <h3 id="chapter-intake">你给经历。<br>它来整理。</h3>
+                <p>上传旧简历，或选择从零填写。Skill 提取经历，你只需补充投递目标，再核对资料。</p>
                 <ul class="step-detail">
-                  <li>工作与实习分别保存，不靠时长猜类型</li>
-                  <li>公司项目关联到具体任职</li>
-                  <li>缺失、冲突和不公开分别保留</li>
+                  <li>目标公司、具体职位分别填写，JD 可选</li>
+                  <li>工作与实习分开，提取结果由你确认</li>
                 </ul>
               </div>
-              <div class="operation-demo demo-intake" data-step-demo aria-label="上传简历和资料提取操作动画">
-                <div class="operation-bar"><span><i></i>资料收集操作演示</span><button type="button" data-demo-replay aria-label="重新播放资料收集动画"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 5.7M20 4v7h-7"/></svg></button></div>
+              <div class="operation-demo demo-intake" data-step-demo data-phase="2" aria-label="上传简历和资料提取操作演示">
+                <div class="operation-bar"><span><i></i>资料收集</span><small>操作示意 · 虚构资料</small></div>
                 <div class="demo-narration"><span data-demo-count>1 / 3</span><strong data-demo-caption>点击上传旧简历；没有简历也可以从零填写</strong></div>
                 <div class="intake-stage">
                   <nav class="intake-nav" aria-hidden="true"><b>资料收集</b><span class="active">求职阶段</span><span>投递目标</span><span>教育经历</span><span>工作 / 实习</span><span>检查提交</span></nav>
                   <div class="intake-work">
                     <div class="upload-zone"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V4M7 9l5-5 5 5M5 14v6h14v-6"/></svg><strong>点击上传旧简历</strong><small>或选择“从零填写”</small></div>
-                    <div class="resume-file"><b>旧简历.pdf</b><span>1.8 MB</span></div>
+                    <div class="resume-file"><b>旧简历.pdf</b><span>已上传</span></div>
                     <div class="parse-line"><span></span></div>
-                    <div class="intake-fields"><p><small>目标岗位</small><b>AI 产品经理</b></p><p><small>工作经历</small><b>2 条已提取</b></p><p><small>项目经历</small><b>3 条待确认</b></p></div>
-                    <button class="demo-confirm intake-confirm" type="button">确认资料，进入改写</button>
+                    <div class="intake-fields"><p><small>工作经历</small><b>已提取，待核对</b></p><p><small>实习经历</small><b>单独核对</b></p><p><small>项目经历</small><b>确认所属经历</b></p></div>
+                    <span class="demo-confirm intake-confirm">确认资料，进入改写</span>
                   </div>
-                  <span class="demo-pointer intake-pointer" aria-hidden="true"></span>
                 </div>
                 <div class="operation-foot"><ol class="demo-timeline"><li>上传简历</li><li>自动提取</li><li>检查确认</li></ol></div>
               </div>
             </div>
-          </details>
+          </article>
 
-          <details name="workflow">
-            <summary><span class="step-number">03</span><strong>确认改写，再看真实排版</strong><small>不编造事实</small><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5v14"/></svg></summary>
+          <article class="story-chapter" aria-labelledby="chapter-template">
             <div class="workflow-detail">
               <div class="step-copy">
-                <p>Skill 根据目标岗位决定重点、顺序和详略。你先核对正文，再在 18 款模板中切换当前内容的实际排版。</p>
+                <span class="chapter-label">03 / 改写排版</span>
+                <h3 id="chapter-template">经历写清楚。<br>版式选喜欢的。</h3>
+                <p>Skill 按目标岗位重组重点。先确认改写内容，再从 18 款模板中选择，查看真实排版。</p>
                 <ul class="step-detail">
-                  <li>换公司、职位或 JD 后重新制定策略</li>
-                  <li>每条正文绑定已确认事实</li>
-                  <li>超页或渲染失败的模板不能确认</li>
+                  <li>只用你确认的事实，不编造指标</li>
+                  <li>先核对文字，再确认模板与页数</li>
                 </ul>
               </div>
-              <div class="operation-demo demo-template" data-step-demo aria-label="内容确认和模板切换操作动画">
-                <div class="operation-bar"><span><i></i>内容与模板操作演示</span><button type="button" data-demo-replay aria-label="重新播放模板选择动画"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 5.7M20 4v7h-7"/></svg></button></div>
+              <div class="operation-demo demo-template" data-step-demo data-phase="2" aria-label="内容确认和模板切换操作演示">
+                <div class="operation-bar"><span><i></i>内容与模板</span><small>操作示意 · 虚构资料</small></div>
                 <div class="demo-narration"><span data-demo-count>1 / 3</span><strong data-demo-caption>先看改写前后，确认没有编造事实</strong></div>
                   <div class="template-stage">
-                  <div class="rewrite-panel"><small>改写前</small><p class="rewrite-before">参与知识库问答项目，协助优化体验。</p><small class="after-label">改写后</small><p class="rewrite-after">定义引用与拒答规则，建立固定问题集并复测。</p><button class="demo-confirm rewrite-confirm" type="button">确认内容真实</button><span class="rewrite-status">内容已确认</span></div>
+                  <div class="rewrite-panel"><small>改写前</small><p class="rewrite-before">参与知识库问答项目，协助优化体验。</p><small class="after-label">依据已确认素材改写</small><p class="rewrite-after">定义引用与拒答规则，建立固定问题集并复测。</p><span class="demo-confirm rewrite-confirm">确认内容真实</span><span class="rewrite-status">内容已确认</span></div>
                   <div class="template-picker" aria-hidden="true"><span class="template-thumb t-a"></span><span class="template-thumb t-b"></span><span class="template-thumb t-c"></span></div>
                   <div class="live-page" aria-hidden="true"><i></i><b></b><span></span><span></span><span></span><em></em></div>
-                  <span class="demo-pointer template-pointer" aria-hidden="true"></span>
                 </div>
                 <div class="operation-foot"><ol class="demo-timeline"><li>核对改写</li><li>确认内容</li><li>选择模板</li></ol></div>
               </div>
             </div>
-          </details>
+          </article>
 
-          <details name="workflow">
-            <summary><span class="step-number">04</span><strong>检查每一页，定稿下载</strong><small>Word / PDF / PNG</small><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5v14"/></svg></summary>
+          <article class="story-chapter" aria-labelledby="chapter-export">
             <div class="workflow-detail">
               <div class="step-copy">
-                <p>确认内容和模板后生成 Word、PDF 与全部 PNG。你查看每一页，确认排版、日期、照片和分页后才交付。</p>
+                <span class="chapter-label">04 / 定稿下载</span>
+                <h3 id="chapter-export">每一页确认。<br>然后，去投递。</h3>
+                <p>查看最终页图，核对内容与分页。确认定稿后，一次拿到可编辑、可投递、可预览的全部文件。</p>
                 <ul class="step-detail">
-                  <li>Word 可继续编辑</li>
-                  <li>PDF 保留文字层</li>
-                  <li>PNG 覆盖全部页面</li>
+                  <li>Word 可编辑，PDF 保留文字层</li>
+                  <li>PNG 覆盖全部页面，统一打包交付</li>
                 </ul>
               </div>
-              <div class="operation-demo demo-export" data-step-demo aria-label="排版检查和文件导出操作动画">
-                <div class="operation-bar"><span><i></i>定稿下载操作演示</span><button type="button" data-demo-replay aria-label="重新播放文件交付动画"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 5.7M20 4v7h-7"/></svg></button></div>
+              <div class="operation-demo demo-export" data-step-demo data-phase="2" aria-label="排版检查和文件导出操作演示">
+                <div class="operation-bar"><span><i></i>最终交付</span><small>操作示意</small></div>
                 <div class="demo-narration"><span data-demo-count>1 / 3</span><strong data-demo-caption>先查看整页预览，确认没有分页或排版问题</strong></div>
                 <div class="export-stage">
                   <div class="preview-page" aria-hidden="true"><b>小林</b><i></i><span></span><span></span><span></span><span></span></div>
                   <div class="check-list"><p><i></i>内容与日期</p><p><i></i>边界与分页</p><p><i></i>照片与文字层</p></div>
                   <div class="export-files"><span>DOCX</span><span>PDF</span><span>PNG</span></div>
-                  <button class="demo-confirm export-confirm" type="button">确认定稿并下载</button>
-                  <span class="demo-pointer export-pointer" aria-hidden="true"></span>
+                  <span class="demo-confirm export-confirm">确认定稿并下载</span>
                 </div>
                 <div class="operation-foot"><ol class="demo-timeline"><li>查看页图</li><li>通过检查</li><li>下载文件</li></ol></div>
               </div>
             </div>
-          </details>
+          </article>
+          </div>
+          <div class="story-bottomline"><span class="scroll-cue"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v16M6 14l6 6 6-6"/></svg><span>继续往下滑，演示随你推进</span></span><span>向上滚动，回看上一步</span></div>
         </div>
       </div>
     </section>
@@ -462,6 +472,6 @@
     </div>
   </dialog>
 
-  <script src="app.js?v=4.0.0"></script>
+  <script src="app.js?v=5.0.0"></script>
 </body>
 </html>
