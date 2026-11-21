@@ -11,7 +11,7 @@
   <meta property="og:description" content="看清怎么用、改写前后和 18 款真实模板，再决定是否购买。">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%232b55ef'/%3E%3Cpath d='M23 45 29 18h10l-2 8c3-3 6-5 10-5l-3 10c-5 0-9 3-11 14Z' fill='white'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="tokens.css?v=6.0.0">
-  <link rel="stylesheet" href="styles.css?v=6.0.0">
+  <link rel="stylesheet" href="styles.css?v=6.1.0">
   <title>AI PM Resume — 看清怎么用、案例和模板</title>
 </head>
 <body>
@@ -445,7 +445,7 @@
     </div>
   </dialog>
 
-  <dialog class="payment-dialog" id="paymentDialog" aria-labelledby="paymentTitle" data-wechat-src="" data-alipay-src="">
+  <dialog class="payment-dialog" id="paymentDialog" aria-labelledby="paymentTitle" aria-describedby="paymentStatus">
     <div class="dialog-head">
       <h2 id="paymentTitle">微信扫码支付</h2>
       <button class="icon-btn" type="button" data-close aria-label="关闭支付弹窗">
@@ -454,24 +454,30 @@
     </div>
     <div class="dialog-body">
       <div class="payment-total"><span>完整 AI 产品经理简历 Skill</span><strong>¥9.9</strong></div>
-      <p id="paymentLead">使用微信扫描下方收款码，支付 9.9 元。</p>
+      <p id="paymentLead">核实 ¥9.90 支付成功后，自动下载安装包。</p>
       <div class="qr-frame">
         <img id="paymentImage" alt="" hidden>
         <div class="qr-placeholder" id="paymentPlaceholder">
+          <svg class="icon payment-success-icon" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="25" fill="none" stroke="currentColor" stroke-width="3"/><path d="m20 32 8 8 17-18" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           <svg class="icon" viewBox="0 0 64 64" aria-hidden="true"><rect x="8" y="8" width="18" height="18" rx="2"/><rect x="38" y="8" width="18" height="18" rx="2"/><rect x="8" y="38" width="18" height="18" rx="2"/><path d="M38 38h7v7h11v11H45v-6h-7zM14 14h6v6h-6zM44 14h6v6h-6zM14 44h6v6h-6z"/></svg>
-          <strong id="paymentPlaceholderTitle">微信收款码</strong>
-          <span>待上传<br>当前页面不会发起付款</span>
+          <strong id="paymentPlaceholderTitle">安全支付</strong>
+          <span id="paymentHint">正在检查支付通道</span>
         </div>
       </div>
       <div class="payment-switch" role="tablist" aria-label="切换支付方式">
         <button class="filter-tab" type="button" role="tab" aria-selected="true" data-payment-option="wechat">微信支付</button>
         <button class="filter-tab" type="button" role="tab" aria-selected="false" tabindex="-1" data-payment-option="alipay">支付宝</button>
       </div>
-      <p class="payment-disclaimer" id="paymentStatus">当前收款码待上传，本页暂不收款。</p>
-      <button class="btn btn--quiet" type="button" data-dialog-primary data-close>暂不支付</button>
+      <p class="payment-disclaimer" id="paymentStatus" role="status" aria-live="polite">正在检查支付通道。</p>
+      <p class="payment-order" id="paymentOrder" hidden></p>
+      <button class="btn" id="paymentCreate" type="button" hidden>生成 ¥9.90 支付二维码</button>
+      <button class="btn" id="paymentDownload" type="button" hidden disabled>下载安装包</button>
+      <button class="btn btn--quiet" type="button" data-dialog-primary data-close>返回介绍页</button>
     </div>
   </dialog>
 
-  <script src="app.js?v=6.0.0"></script>
+  <script src="checkout-config.js?v=6.1.0"></script>
+  <script src="checkout.js?v=6.1.0"></script>
+  <script src="app.js?v=6.1.0"></script>
 </body>
 </html>

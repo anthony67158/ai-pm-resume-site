@@ -989,13 +989,21 @@ dialog[open] { animation: dialog-in 300ms var(--ease-out); }
   padding-block-end: var(--space-md);
   border-block-end: var(--rule-hair) solid var(--color-rule);
 }
-.qr-frame { width: min(100%, 18rem); aspect-ratio: 1; display: grid; place-items: center; border: var(--rule-hair) solid var(--color-rule); }
+.qr-frame { width: min(100%, 15rem); aspect-ratio: 1; display: grid; place-items: center; background: white; border: var(--rule-hair) solid var(--color-rule); border-radius: 1rem; overflow: hidden; }
 .qr-frame img { width: 100%; height: 100%; object-fit: contain; }
 .qr-placeholder { display: grid; justify-items: center; gap: var(--space-sm); text-align: center; color: var(--color-muted); }
 .qr-placeholder .icon { width: 4rem; height: 4rem; color: var(--color-rule-strong); }
 .qr-placeholder strong { color: var(--color-ink); }
 .payment-switch { display: flex; gap: var(--space-xs); }
 .payment-disclaimer { color: var(--color-muted); font-size: var(--text-sm); text-align: center; }
+.payment-dialog .dialog-body { gap: 1rem; grid-auto-rows: max-content; align-content: start; }
+.payment-dialog .payment-success-icon { display: none; color: var(--color-ink); }
+.payment-dialog [data-state="paid"] > .icon { display: none; }
+.payment-dialog [data-state="paid"] > .payment-success-icon { display: block; }
+.payment-dialog #paymentLead { text-align: center; font-size: var(--text-sm); }
+.payment-order { max-width: 100%; overflow-wrap: anywhere; color: var(--color-muted); font-size: .7rem; text-align: center; }
+.payment-dialog .btn { min-height: 44px; }
+.payment-dialog .filter-tab:disabled { cursor: default; opacity: .6; }
 
 /* One-time reveal; content remains visible after entering. */
 .reveal {

@@ -28,23 +28,26 @@ python3 -m http.server 4173
 - 横屏高度不足、开启“减少动态效果”或禁用 JavaScript 时，按顺序完整展示四步；手机静态版同时保留改写与模板内容。
 - 演示控件为操作示意，实际简历制作在用户的 Agent 中进行；复制启动指令、模板预览和支付入口仍可操作。
 
-## 收款码接入
+## 支付与自动下载
 
-页面已预留微信和支付宝两个独立二维码配置位。收到收款码后：
+`payment-service/` 是独立 Node.js 22.16+ 服务。微信 Native API v3 和支付宝当面付生成专属订单码，服务端验签并核对实际付款 ¥9.90 后授权下载。页面显示 3 秒成功确认后尝试自动保存 ZIP；浏览器拦截时可手动重试。个人静态收款码不能自动核销订单。
 
-1. 将图片放到 `assets/wechat-qr.png` 与 `assets/alipay-qr.png`。
-2. 在 `index.html` 的 `#commerce` 元素上设置：
-
-```html
-data-wechat-src="assets/wechat-qr.png"
-data-alipay-src="assets/alipay-qr.png"
+```bash
+cd payment-service
+npm ci
+cp .env.example .env
+# 在服务器配置 .env 中的商户凭据、HTTPS 域名、私有 ZIP 路径和持久数据库
+npm test
+npm start
 ```
 
-配置前页面会明确显示“收款码待上传”，不会伪装成可付款状态。
+支付页与订单 API 必须同源。GitHub Pages 仅展示介绍页；完成商户实付验收后，在 `checkout-config.js` 设置支付服务器 HTTPS origin，用户点击支付时跳转结算。默认地址为空，页面不收款。
+
+配置、回调、上线验收和失败恢复见 [支付集成说明](docs/payment-integration.md)。裁剪原始收款图可使用 `scripts/crop-payment-qr.py`，会验证裁剪前后二维码内容一致；裁剪工具不会将个人码变成支持回调的订单码。
 
 ## 边界
 
 - 本仓库只包含公开商品页，不包含私有 Skill 源码或付费安装包。
-- 页面不收集简历、订单、邮箱或其他个人信息。
-- 当前为二维码直付入口，不具备自动订单核验和自动发货能力。
+- 介绍页不收集简历或邮箱。支付服务仅保存匿名浏览器会话关联、订单和交易核验记录。
+- 当前缺少真实商户配置和支付服务器地址，尚未启用线上收款；本地测试不代表真实渠道联调通过。
 - 页面中的人物、公司、经历和数字均为合成教学素材。
